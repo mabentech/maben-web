@@ -1,0 +1,1360 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MABEN — Créditos bajo control. Negocio en crecimiento.</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --blue:#1a56ff;
+  --green:#00c07f;
+  --navy:#050810;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--navy);
+  color:#fff;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  overflow-x:hidden;
+}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-thumb{background:#1a56ff44;border-radius:4px}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  padding:16px 24px;
+}
+.nav-inner{
+  max-width:1000px;margin:0 auto;
+  border-radius:999px;
+  padding:10px 22px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(5,8,16,0.7);
+  border:1px solid rgba(255,255,255,0.08);
+  backdrop-filter:blur(20px);
+  animation:fadeDown .7s ease both;
+}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:none}}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo-mark{width:30px;height:30px;border-radius:7px;background:rgba(26,86,255,0.15);border:1px solid rgba(26,86,255,0.3);display:flex;align-items:center;justify-content:center}
+.nav-name{font-size:16px;font-weight:800;letter-spacing:.08em}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:13px;font-weight:500;color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{background:var(--blue);color:#fff;border:none;border-radius:999px;padding:9px 22px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s}
+.nav-cta:hover{background:#1445e0;transform:translateY(-1px);box-shadow:0 6px 20px rgba(26,86,255,.4)}
+
+/* ── HERO ── */
+#hero{
+  position:relative;
+  height:200vh;
+  min-height:1400px;
+  display:flex;align-items:flex-start;justify-content:center;
+  padding-top:20vh;
+}
+#bg-video-wrap{
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  z-index:0;
+  pointer-events:none;
+  background:#06080f;
+}
+#bg-video{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center center;
+  display:block;
+  background:#06080f;
+}
+#bg-video:not([src]){opacity:0}
+#bg-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(
+    135deg,
+    rgba(4,6,20,0.25) 0%,
+    rgba(4,6,20,0.05) 50%,
+    rgba(4,6,20,0.25) 100%
+  );
+}
+#hero-canvas{display:none}
+.hero-content{
+  position:relative;z-index:10;
+  text-align:center;
+  padding:0 24px;
+  pointer-events:none;
+}
+.hero-text-bg{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:min(700px,90vw);
+  height:420px;
+  background:radial-gradient(ellipse at center,rgba(0,0,12,0.72) 0%,rgba(0,0,12,0.4) 55%,transparent 100%);
+  z-index:-1;
+  pointer-events:none;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  border-radius:999px;padding:7px 20px;
+  background:rgba(0,192,127,0.07);border:1px solid rgba(0,192,127,0.28);
+  font-size:10px;font-weight:700;color:#00c07f;
+  letter-spacing:.2em;text-transform:uppercase;
+  margin-bottom:36px;
+  animation:fadeUp .7s .2s ease both;opacity:0;
+}
+.hero-dot{width:6px;height:6px;background:#00c07f;border-radius:50%;animation:pulse 2s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+h1{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-style:normal;
+  font-size:clamp(48px,6.5vw,88px);
+  line-height:1.0;
+  letter-spacing:-.04em;
+  font-weight:800;
+  color:#fff;
+  margin-bottom:0;
+  animation:fadeUp .8s .3s ease both;opacity:0;
+  text-shadow:
+    0 2px 4px rgba(0,0,0,0.9),
+    0 8px 32px rgba(0,0,0,0.7),
+    0 0 80px rgba(0,0,0,0.5);
+}
+.h1-line2{
+  display:block;
+  font-family:'Instrument Serif',serif;
+  font-style:italic;
+  font-weight:400;
+  font-size:clamp(28px,3.8vw,52px);
+  color:rgba(255,255,255,0.55);
+  letter-spacing:-.02em;
+  margin-top:6px;
+  text-shadow:0 2px 20px rgba(0,0,0,0.8);
+}
+.hero-sub{
+  font-size:16px;color:rgba(255,255,255,0.75);
+  line-height:1.8;max-width:520px;margin:28px auto 40px;
+  font-weight:400;letter-spacing:.01em;
+  animation:fadeUp .8s .4s ease both;opacity:0;
+  text-shadow:0 2px 12px rgba(0,0,0,0.9);
+}
+.hero-btns{
+  display:flex;gap:14px;justify-content:center;flex-wrap:wrap;
+  animation:fadeUp .8s .5s ease both;opacity:0;
+  pointer-events:all;
+}
+.btn-main{background:#1a56ff;color:#fff;border:none;border-radius:10px;padding:15px 36px;font-size:14px;font-weight:700;letter-spacing:.03em;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s;text-decoration:none;display:inline-block}
+.btn-main:hover{background:#1445e0;transform:translateY(-2px);box-shadow:0 14px 36px rgba(26,86,255,.5)}
+.btn-ghost{background:rgba(255,255,255,0.04);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:15px 32px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s;text-decoration:none;display:inline-block;letter-spacing:.01em}
+.btn-ghost:hover{color:#fff;border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.08)}
+
+/* scroll hint */
+.scroll-hint{
+  position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+  z-index:10;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  animation:fadeUp .8s .8s ease both;opacity:0;
+}
+.scroll-hint span{font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.12em;text-transform:uppercase}
+.scroll-arrow{width:20px;height:32px;border:1.5px solid rgba(255,255,255,.15);border-radius:10px;position:relative}
+.scroll-arrow::after{content:'';position:absolute;top:5px;left:50%;transform:translateX(-50%);width:3px;height:6px;background:rgba(255,255,255,.4);border-radius:2px;animation:scrollDot 1.5s ease-in-out infinite}
+@keyframes scrollDot{0%{opacity:1;transform:translateX(-50%) translateY(0)}100%{opacity:0;transform:translateX(-50%) translateY(14px)}}
+
+/* fusion label */
+.fusion-label{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  z-index:11;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .5s;
+  background:rgba(26,86,255,0.15);
+  border:1px solid rgba(26,86,255,0.4);
+  border-radius:999px;
+  padding:8px 22px;
+  font-size:12px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--blue);
+  backdrop-filter:blur(10px);
+}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+/* ── SECTIONS ── */
+section.content-section{
+  padding:110px 24px;
+  position:relative;
+  background:#07091a;
+  border-top:1px solid rgba(255,255,255,0.06);
+}
+.section-inner{max-width:1060px;margin:0 auto}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#00d488;margin-bottom:14px}
+.section-h{
+  font-family:'Instrument Serif',serif;font-style:italic;
+  font-size:clamp(30px,4.5vw,54px);
+  letter-spacing:-.025em;line-height:1.1;
+  color:#fff;
+  margin-bottom:56px;
+}
+.section-h em{color:rgba(255,255,255,.3);font-style:normal}
+.divider-line{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);margin:0 24px}
+
+/* cards */
+.glass-card{
+  background:#0e1228;
+  border:1px solid rgba(255,255,255,0.10);
+  border-radius:16px;padding:28px;
+  transition:transform .3s,border-color .3s;
+}
+.glass-card:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.25);background:#131830}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+
+/* features tabs */
+.tabs-nav{display:flex;gap:4px;background:rgba(255,255,255,0.05);padding:5px;border-radius:12px;width:fit-content;margin-bottom:40px}
+.tab-btn{padding:9px 22px;border-radius:8px;border:none;font-size:13px;font-weight:600;color:rgba(255,255,255,.45);background:transparent;cursor:pointer;transition:all .2s;font-family:'Plus Jakarta Sans',sans-serif}
+.tab-btn.active{background:rgba(255,255,255,.12);color:#fff}
+.tab-panel{display:none}
+.tab-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;animation:fadeUp .4s ease both}
+
+/* feat visual */
+.feat-visual{border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.1);box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.fv-bar{background:rgba(10,15,30,.95);padding:10px 14px;display:flex;align-items:center;gap:6px;border-bottom:1px solid rgba(255,255,255,.06)}
+.fv-dot{width:9px;height:9px;border-radius:50%}
+.fv-body{padding:18px;background:rgba(6,10,22,.97)}
+.wz-step{flex:1;padding:7px;border-radius:6px;text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.wf{background:rgba(255,255,255,.04);border-radius:8px;padding:10px 12px;border:1px solid rgba(255,255,255,.05);margin-bottom:6px}
+.wf-l{font-size:9px;color:rgba(255,255,255,.28);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px}
+.wf-v{font-size:13px;color:#fff;font-weight:600}
+.cr-row{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:12px}
+.cr-row:last-child{border:none}
+.mora-item{background:rgba(255,107,107,.07);border:1px solid rgba(255,107,107,.18);border-radius:8px;padding:9px 12px;display:flex;align-items:center;justify-content:space-between;margin-bottom:5px;font-size:12px}
+.caja-mov{display:flex;align-items:center;justify-content:space-between;padding:7px 10px;background:rgba(255,255,255,.03);border-radius:7px;margin-bottom:5px;border:1px solid rgba(255,255,255,.04);font-size:12px}
+
+/* pricing */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.price-card{border-radius:18px;padding:30px 26px;border:1px solid rgba(255,255,255,.12);background:#0e1228;position:relative;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.price-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.price-card.featured{border:1.5px solid #1a56ff;background:#0d1a3a}
+.popular-tag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--blue);color:#fff;font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:4px 16px;border-radius:99px;white-space:nowrap}
+.btn-price{display:block;width:100%;padding:13px;border-radius:10px;font-size:13px;font-weight:700;text-align:center;cursor:pointer;border:none;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s}
+.btn-dark{background:rgba(255,255,255,.08);color:#fff}
+.btn-dark:hover{background:rgba(255,255,255,.15)}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-blue:hover{background:#1445e0;box-shadow:0 6px 20px rgba(26,86,255,.35)}
+
+/* faq */
+.faq-item{border-bottom:1px solid rgba(255,255,255,.07);padding:20px 0;cursor:pointer}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:15px;font-weight:600;color:rgba(255,255,255,.82);line-height:1.4}
+.faq-icon{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:16px;color:rgba(255,255,255,.35);flex-shrink:0;transition:transform .3s,background .3s,color .3s}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:rgba(26,86,255,.2);color:var(--blue)}
+.faq-a{font-size:14px;color:rgba(255,255,255,.42);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .35s ease,margin .3s}
+.faq-item.open .faq-a{max-height:300px;margin-top:12px}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.reveal.show{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+/* ticker */
+.ticker-wrap{overflow:hidden;padding:14px 0;background:#07091a;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
+.ticker{display:flex;white-space:nowrap;animation:ticker 28s linear infinite}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker-item{display:inline-flex;align-items:center;gap:16px;padding:0 32px;font-size:11px;color:rgba(255,255,255,.32);letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+
+/* toggle */
+.toggle-track{width:48px;height:26px;border-radius:999px;cursor:pointer;position:relative;border:1px solid rgba(255,255,255,.1);transition:background .25s}
+.toggle-knob{position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:transform .25s;box-shadow:0 1px 4px rgba(0,0,0,.4)}
+
+/* cta section */
+#cta-section{padding:140px 24px;text-align:center;position:relative;overflow:hidden;background:#07091a;border-top:1px solid rgba(255,255,255,.06)}
+
+/* footer */
+footer{border-top:1px solid rgba(255,255,255,.08);padding:34px 24px;background:#050714}
+.footer-inner{max-width:1060px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+
+@media(max-width:900px){
+  .grid-3,.grid-4,.pricing-grid{grid-template-columns:1fr 1fr}
+  .tab-panel.active{grid-template-columns:1fr}
+  .feat-visual{display:none}
+  .nav-links{display:none}
+}
+@media(max-width:600px){
+  .grid-3,.pricing-grid{grid-template-columns:1fr}
+  section.content-section{padding:80px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-mark">
+        <svg width="18" height="18" viewBox="0 0 36 36" fill="none">
+          <rect x="3" y="9" width="7" height="19" rx="2" fill="#1a56ff"/>
+          <rect x="14" y="4" width="7" height="28" rx="2" fill="white"/>
+          <rect x="25" y="13" width="7" height="15" rx="2" fill="#1a56ff" opacity=".55"/>
+        </svg>
+      </div>
+      <span class="nav-name">MABEN</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#features">Funciones</a></li>
+      <li><a href="#sectors">Sectores</a></li>
+      <li><a href="#pricing">Precios</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <button class="nav-cta">Solicitar demo →</button>
+  </div>
+</nav>
+
+<!-- VIDEO FIJO DE FONDO -->
+<div id="bg-video-wrap">
+  <video id="bg-video" muted playsinline preload="auto" src="video-corazon-cerebro.mp4"></video>
+  <div id="bg-overlay"></div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="fusion-label" id="fusion-label">⚡ Sistema MABEN activado</div>
+
+  <div class="hero-content">
+    <div class="hero-text-bg"></div>
+    <div class="hero-eyebrow">
+      <span class="hero-dot"></span>
+      Activo en Venezuela · Colombia · Ecuador
+    </div>
+    <h1>
+      Créditos bajo control.
+      <span class="h1-line2">Negocio en crecimiento.</span>
+    </h1>
+    <p class="hero-sub">
+      El sistema completo para financieras de Latinoamérica.<br>
+      Inteligencia tecnológica al servicio de tu cartera.
+    </p>
+    <div class="hero-btns">
+      <a href="#pricing" class="btn-main">Ver planes y precios</a>
+      <a href="#features" class="btn-ghost">Ver cómo funciona →</a>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scroll para ver la fusión</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span class="ticker-item"><span style="color:#1a56ff;font-size:8px">◆</span> Motos</span>
+    <span class="ticker-item"><span style="color:#1a56ff;font-size:8px">◆</span> Electrodomésticos</span>
+    <span class="ticker-item"><span style="color:#1a56ff;font-size:8px">◆</span> Maquinaria agrícola</span>
+    <span class="ticker-item"><span style="color:#1a56ff;font-size:8px">◆</span> Paneles solares</span>
+    <span class="ticker-item"><span style="color:#1a56ff;font-size:8px">◆</span> Score Indexa /850</span>
+    <span class="ticker-item"><span style="color:#1a56ff;font-size:8px">◆</span> Mora automática</span>
+    <span class="ticker-item"><span style="color:#1a56ff;font-size:8px">◆</span> Cartera en tiempo real</span>
+    <span class="ticker-item"><span style="color:#1a56ff;font-size:8px">◆</span> Multi-sede</span>
+    <span class="ticker-item"><span style="color:#1a56ff;font-size:8px">◆</span> Firebase Cloud</span>
+    <span class="ticker-item"><span style="color:#1a56ff;font-size:8px">◆</span> Motos</span>
+    <span class="ticker-item"><span style="color:#1a56ff;font-size:8px">◆</span> Electrodomésticos</span>
+    <span class="ticker-item"><span style="color:#1a56ff;font-size:8px">◆</span> Maquinaria agrícola</span>
+    <span class="ticker-item"><span style="color:#1a56ff;font-size:8px">◆</span> Paneles solares</span>
+    <span class="ticker-item"><span style="color:#1a56ff;font-size:8px">◆</span> Score Indexa /850</span>
+    <span class="ticker-item"><span style="color:#1a56ff;font-size:8px">◆</span> Mora automática</span>
+    <span class="ticker-item"><span style="color:#1a56ff;font-size:8px">◆</span> Cartera en tiempo real</span>
+    <span class="ticker-item"><span style="color:#1a56ff;font-size:8px">◆</span> Multi-sede</span>
+    <span class="ticker-item"><span style="color:#1a56ff;font-size:8px">◆</span> Firebase Cloud</span>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<div class="divider-line"></div>
+<section class="content-section" style="background:rgba(255,255,255,0.015)">
+  <div class="section-inner">
+    <p class="eyebrow reveal">El problema real</p>
+    <h2 class="section-h reveal">¿Reconoces esto <em>en tu financiera?</em></h2>
+    <div class="grid-3">
+      <div class="glass-card reveal">
+        <div style="font-size:28px;margin-bottom:16px">📋</div>
+        <div style="font-size:17px;font-weight:700;margin-bottom:10px;letter-spacing:-.02em">Excel que no escala</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.48);line-height:1.65">Fórmulas que se rompen, celdas perdidas, versiones distintas. Cada error cuesta dinero real.</div>
+        <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.06);font-size:13px;font-weight:600;color:#00c07f">Con MABEN esto desaparece →</div>
+      </div>
+      <div class="glass-card reveal d1">
+        <div style="font-size:28px;margin-bottom:16px">📵</div>
+        <div style="font-size:17px;font-weight:700;margin-bottom:10px;letter-spacing:-.02em">Mora que no ves a tiempo</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.48);line-height:1.65">Te enteras de un crédito vencido cuando ya tiene semanas. Para entonces el cliente desapareció.</div>
+        <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.06);font-size:13px;font-weight:600;color:#00c07f">MABEN alerta el día 1 →</div>
+      </div>
+      <div class="glass-card reveal d2">
+        <div style="font-size:28px;margin-bottom:16px">🔦</div>
+        <div style="font-size:17px;font-weight:700;margin-bottom:10px;letter-spacing:-.02em">Sin visibilidad real</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.48);line-height:1.65">No sabes cuánto tienes en cartera ni cuánto cobrarás este mes. Manejas tu negocio a ciegas.</div>
+        <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.06);font-size:13px;font-weight:600;color:#00c07f">Reportes en tiempo real →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<div class="divider-line"></div>
+<section class="content-section" id="features">
+  <div class="section-inner">
+    <p class="eyebrow reveal">Funcionalidades</p>
+    <h2 class="section-h reveal">Todo lo que necesitas <em>en un solo lugar.</em></h2>
+    <div class="tabs-nav reveal" id="tabs-nav">
+      <button class="tab-btn active" onclick="switchTab('creditos',this)">Créditos</button>
+      <button class="tab-btn" onclick="switchTab('cartera',this)">Cartera</button>
+      <button class="tab-btn" onclick="switchTab('mora',this)">Mora</button>
+      <button class="tab-btn" onclick="switchTab('caja',this)">Caja</button>
+    </div>
+
+    <div class="tab-panel active" id="tab-creditos">
+      <div>
+        <h3 style="font-size:clamp(22px,2.5vw,32px);font-weight:700;letter-spacing:-.03em;line-height:1.2;margin-bottom:14px">Aprueba créditos en minutos, no en horas.</h3>
+        <p style="font-size:15px;color:rgba(255,255,255,.72);line-height:1.75;margin-bottom:28px">Un wizard paso a paso calcula el score automáticamente. Tú defines los criterios una vez, el sistema decide siempre.</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.75)"><div style="width:20px;height:20px;border-radius:5px;background:rgba(26,86,255,.2);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px">✓</div>Score Indexa /850 calculado en segundos</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.75)"><div style="width:20px;height:20px;border-radius:5px;background:rgba(26,86,255,.2);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px">✓</div>Evalúa historial, ingresos, empleo y garantías</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.75)"><div style="width:20px;height:20px;border-radius:5px;background:rgba(26,86,255,.2);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px">✓</div>Plan de cuotas calculado automáticamente</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.75)"><div style="width:20px;height:20px;border-radius:5px;background:rgba(26,86,255,.2);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px">✓</div>Contrato generado con un clic</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.75)"><div style="width:20px;height:20px;border-radius:5px;background:rgba(26,86,255,.2);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px">✓</div>Sin criterios subjetivos, sin errores humanos</div>
+        </div>
+      </div>
+      <div class="feat-visual">
+        <div class="fv-bar"><div class="fv-dot" style="background:#ff5f57"></div><div class="fv-dot" style="background:#ffbd2e;margin-left:6px"></div><div class="fv-dot" style="background:#28c840;margin-left:6px"></div></div>
+        <div class="fv-body">
+          <div style="display:flex;gap:6px;margin-bottom:14px">
+            <div class="wz-step" style="background:rgba(0,192,127,.15);color:#00c07f">✓ Cliente</div>
+            <div class="wz-step" style="background:rgba(0,192,127,.15);color:#00c07f">✓ Perfil</div>
+            <div class="wz-step" style="background:#1a56ff;color:#fff">Resultado</div>
+          </div>
+          <div class="wf"><div class="wf-l">Cliente</div><div class="wf-v">Carlos Eduardo Ramírez</div></div>
+          <div class="wf"><div class="wf-l">Artículo</div><div class="wf-v">Moto Honda CB190 — $2,400</div></div>
+          <div class="wf"><div class="wf-l">Plan</div><div class="wf-v">12 meses · $240/mes · inicial 20%</div></div>
+          <div style="background:rgba(0,192,127,.1);border:1px solid rgba(0,192,127,.25);border-radius:99px;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;margin-top:6px">
+            <div><div style="font-size:10px;color:rgba(255,255,255,.38)">Score Indexa</div><div style="font-size:22px;font-weight:800;color:#00c07f">712 / 850</div></div>
+            <div style="background:rgba(0,192,127,.2);color:#00c07f;font-size:11px;font-weight:700;padding:4px 12px;border-radius:99px">✓ APROBADO</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-cartera">
+      <div>
+        <h3 style="font-size:clamp(22px,2.5vw,32px);font-weight:700;letter-spacing:-.03em;line-height:1.2;margin-bottom:14px">Tu cartera completa, siempre al día.</h3>
+        <p style="font-size:15px;color:rgba(255,255,255,.72);line-height:1.75;margin-bottom:28px">El estado de cada crédito en tiempo real. Cuánto se debe, cuándo vence la próxima cuota, quién cobra.</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.75)"><div style="width:20px;height:20px;border-radius:5px;background:rgba(26,86,255,.2);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px">✓</div>Saldo actualizado tras cada pago</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.75)"><div style="width:20px;height:20px;border-radius:5px;background:rgba(26,86,255,.2);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px">✓</div>Estado de cada crédito en un pantallazo</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.75)"><div style="width:20px;height:20px;border-radius:5px;background:rgba(26,86,255,.2);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px">✓</div>Cobrador asignado por crédito</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.75)"><div style="width:20px;height:20px;border-radius:5px;background:rgba(26,86,255,.2);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px">✓</div>Historial completo de pagos y ediciones</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.75)"><div style="width:20px;height:20px;border-radius:5px;background:rgba(26,86,255,.2);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px">✓</div>Reportes de cartera exportables</div>
+        </div>
+      </div>
+      <div class="feat-visual">
+        <div class="fv-bar"><div class="fv-dot" style="background:#ff5f57"></div><div class="fv-dot" style="background:#ffbd2e;margin-left:6px"></div><div class="fv-dot" style="background:#28c840;margin-left:6px"></div></div>
+        <div class="fv-body">
+          <div style="font-size:9px;color:rgba(255,255,255,.25);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px">Créditos activos — 184</div>
+          <div class="cr-row" style="border-bottom:1px solid rgba(255,255,255,.06)"><div style="font-size:9px;color:rgba(255,255,255,.25)">Cliente</div><div style="font-size:9px;color:rgba(255,255,255,.25)">Cuota</div><div style="font-size:9px;color:rgba(255,255,255,.25)">Estado</div></div>
+          <div class="cr-row"><div style="color:#fff;font-weight:600">Carlos Ramírez</div><div style="color:rgba(255,255,255,.4)">$240 · 15 jun</div><div style="background:rgba(0,192,127,.15);color:#00c07f;padding:2px 9px;border-radius:99px;font-size:10px;font-weight:700">Al día</div></div>
+          <div class="cr-row"><div style="color:#fff;font-weight:600">María López</div><div style="color:rgba(255,255,255,.4)">$180 · mañana</div><div style="background:rgba(245,158,11,.15);color:#f59e0b;padding:2px 9px;border-radius:99px;font-size:10px;font-weight:700">Por vencer</div></div>
+          <div class="cr-row"><div style="color:#fff;font-weight:600">Pedro Suárez</div><div style="color:rgba(255,255,255,.4)">$320 · vencida</div><div style="background:rgba(255,107,107,.15);color:#ff6b6b;padding:2px 9px;border-radius:99px;font-size:10px;font-weight:700">En mora</div></div>
+          <div class="cr-row"><div style="color:#fff;font-weight:600">Ana Colmenares</div><div style="color:rgba(255,255,255,.4)">$195 · 20 jun</div><div style="background:rgba(0,192,127,.15);color:#00c07f;padding:2px 9px;border-radius:99px;font-size:10px;font-weight:700">Al día</div></div>
+          <div class="cr-row"><div style="color:#fff;font-weight:600">Luis Fernández</div><div style="color:rgba(255,255,255,.4)">$440 · 18 jun</div><div style="background:rgba(0,192,127,.15);color:#00c07f;padding:2px 9px;border-radius:99px;font-size:10px;font-weight:700">Al día</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-mora">
+      <div>
+        <h3 style="font-size:clamp(22px,2.5vw,32px);font-weight:700;letter-spacing:-.03em;line-height:1.2;margin-bottom:14px">La mora aparece sola. No esperes a que sea tarde.</h3>
+        <p style="font-size:15px;color:rgba(255,255,255,.72);line-height:1.75;margin-bottom:28px">Al día siguiente de vencer, MABEN detecta el crédito automáticamente y alerta al cobrador. Cero revisión manual.</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.75)"><div style="width:20px;height:20px;border-radius:5px;background:rgba(26,86,255,.2);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px">✓</div>Detección automática desde el día 1</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.75)"><div style="width:20px;height:20px;border-radius:5px;background:rgba(26,86,255,.2);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px">✓</div>Días de gracia configurables</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.75)"><div style="width:20px;height:20px;border-radius:5px;background:rgba(26,86,255,.2);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px">✓</div>Alerta inmediata al cobrador responsable</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.75)"><div style="width:20px;height:20px;border-radius:5px;background:rgba(26,86,255,.2);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px">✓</div>Vuelve a "al día" automático al pagar</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.75)"><div style="width:20px;height:20px;border-radius:5px;background:rgba(26,86,255,.2);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px">✓</div>Reporte de mora por cobrador y sede</div>
+        </div>
+      </div>
+      <div class="feat-visual">
+        <div class="fv-bar"><div class="fv-dot" style="background:#ff5f57"></div><div class="fv-dot" style="background:#ffbd2e;margin-left:6px"></div><div class="fv-dot" style="background:#28c840;margin-left:6px"></div></div>
+        <div class="fv-body">
+          <div style="text-align:center;padding:14px 0"><div style="font-size:44px;font-weight:800;color:#ff6b6b;letter-spacing:-.04em">3</div><div style="font-size:11px;color:rgba(255,255,255,.35);margin-top:2px">créditos en mora hoy</div></div>
+          <div class="mora-item"><div><div style="font-weight:600;color:#fff">Pedro Suárez</div><div style="font-size:10px;color:rgba(255,255,255,.25);margin-top:2px">Cobrador: Luis V.</div></div><div style="color:#ff6b6b;font-weight:700">4 días</div><div style="color:rgba(255,255,255,.4)">$540</div></div>
+          <div class="mora-item"><div><div style="font-weight:600;color:#fff">Roberto Díaz</div><div style="font-size:10px;color:rgba(255,255,255,.25);margin-top:2px">Cobrador: Ana R.</div></div><div style="color:#ff6b6b;font-weight:700">2 días</div><div style="color:rgba(255,255,255,.4)">$280</div></div>
+          <div class="mora-item"><div><div style="font-weight:600;color:#fff">Carmen Vidal</div><div style="font-size:10px;color:rgba(255,255,255,.25);margin-top:2px">Cobrador: Luis V.</div></div><div style="color:#ff6b6b;font-weight:700">1 día</div><div style="color:rgba(255,255,255,.4)">$190</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-caja">
+      <div>
+        <h3 style="font-size:clamp(22px,2.5vw,32px);font-weight:700;letter-spacing:-.03em;line-height:1.2;margin-bottom:14px">Cada peso entra y sale registrado.</h3>
+        <p style="font-size:15px;color:rgba(255,255,255,.72);line-height:1.75;margin-bottom:28px">Caja, cuentas, egresos y transferencias en tiempo real. Sin contadores ni hojas adicionales.</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.75)"><div style="width:20px;height:20px;border-radius:5px;background:rgba(26,86,255,.2);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px">✓</div>Cada pago mueve la caja automáticamente</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.75)"><div style="width:20px;height:20px;border-radius:5px;background:rgba(26,86,255,.2);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px">✓</div>Transferencias entre cuentas con un clic</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.75)"><div style="width:20px;height:20px;border-radius:5px;background:rgba(26,86,255,.2);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px">✓</div>Registro de egresos y gastos operativos</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.75)"><div style="width:20px;height:20px;border-radius:5px;background:rgba(26,86,255,.2);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px">✓</div>Anulación con trazabilidad completa</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.75)"><div style="width:20px;height:20px;border-radius:5px;background:rgba(26,86,255,.2);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px">✓</div>Conciliación diaria en segundos</div>
+        </div>
+      </div>
+      <div class="feat-visual">
+        <div class="fv-bar"><div class="fv-dot" style="background:#ff5f57"></div><div class="fv-dot" style="background:#ffbd2e;margin-left:6px"></div><div class="fv-dot" style="background:#28c840;margin-left:6px"></div></div>
+        <div class="fv-body">
+          <div style="background:rgba(26,86,255,.1);border:1px solid rgba(26,86,255,.2);border-radius:10px;padding:14px;margin-bottom:10px;text-align:center"><div style="font-size:9px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Caja total hoy</div><div style="font-size:30px;font-weight:800;color:#6ea8fe;letter-spacing:-.03em">$4,820</div></div>
+          <div class="caja-mov"><div style="color:rgba(255,255,255,.65)">Pago — Carlos Ramírez</div><div style="color:rgba(255,255,255,.2);font-size:10px">10:32</div><div style="color:#00c07f;font-weight:700">+$240</div></div>
+          <div class="caja-mov"><div style="color:rgba(255,255,255,.65)">Pago — Ana Colmenares</div><div style="color:rgba(255,255,255,.2);font-size:10px">09:15</div><div style="color:#00c07f;font-weight:700">+$195</div></div>
+          <div class="caja-mov"><div style="color:rgba(255,255,255,.65)">Egreso — Alquiler</div><div style="color:rgba(255,255,255,.2);font-size:10px">08:00</div><div style="color:#ff6b6b;font-weight:700">-$800</div></div>
+          <div class="caja-mov"><div style="color:rgba(255,255,255,.65)">Transferencia → Cta 2</div><div style="color:rgba(255,255,255,.2);font-size:10px">ayer</div><div style="color:#ff6b6b;font-weight:700">-$1,000</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTORS -->
+<div class="divider-line"></div>
+<section class="content-section" id="sectors" style="background:rgba(255,255,255,0.015)">
+  <div class="section-inner">
+    <p class="eyebrow reveal">Sectores</p>
+    <h2 class="section-h reveal">Un sistema para cualquier <em>artículo a crédito.</em></h2>
+    <div class="grid-4">
+      <div class="glass-card reveal" style="border-radius:14px;padding:26px 20px">
+        <div style="font-size:28px;margin-bottom:16px">🏍</div>
+        <div style="font-size:16px;font-weight:700;margin-bottom:6px;letter-spacing:-.02em">Motos</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.4);line-height:1.6">Venezuela, Colombia, Ecuador y Perú. Ya activo y probado.</div>
+        <div style="display:inline-flex;margin-top:16px;font-size:10px;font-weight:700;padding:4px 12px;border-radius:99px;background:rgba(0,192,127,0.1);color:#00c07f">✓ Activo hoy</div>
+      </div>
+      <div class="glass-card reveal d1" style="border-radius:14px;padding:26px 20px">
+        <div style="font-size:28px;margin-bottom:16px">📺</div>
+        <div style="font-size:16px;font-weight:700;margin-bottom:6px;letter-spacing:-.02em">Electrodomésticos</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.4);line-height:1.6">Gestiona cientos de créditos pequeños sin perder el rastro.</div>
+        <div style="display:inline-flex;margin-top:16px;font-size:10px;font-weight:700;padding:4px 12px;border-radius:99px;background:rgba(26,86,255,0.1);color:#6ea8fe">Alta demanda</div>
+      </div>
+      <div class="glass-card reveal d2" style="border-radius:14px;padding:26px 20px">
+        <div style="font-size:28px;margin-bottom:16px">🚜</div>
+        <div style="font-size:16px;font-weight:700;margin-bottom:6px;letter-spacing:-.02em">Maquinaria</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.4);line-height:1.6">Créditos de alto valor con control total de garantías.</div>
+        <div style="display:inline-flex;margin-top:16px;font-size:10px;font-weight:700;padding:4px 12px;border-radius:99px;background:rgba(245,158,11,0.1);color:#f59e0b">Ticket alto</div>
+      </div>
+      <div class="glass-card reveal d3" style="border-radius:14px;padding:26px 20px">
+        <div style="font-size:28px;margin-bottom:16px">☀️</div>
+        <div style="font-size:16px;font-weight:700;margin-bottom:6px;letter-spacing:-.02em">Paneles solares</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.4);line-height:1.6">El sector de mayor crecimiento en Latam. Listo para escalar.</div>
+        <div style="display:inline-flex;margin-top:16px;font-size:10px;font-weight:700;padding:4px 12px;border-radius:99px;background:rgba(0,192,127,0.1);color:#00c07f">Sector en boom</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<div class="divider-line"></div>
+<section class="content-section" style="text-align:center">
+  <div class="section-inner">
+    <p class="eyebrow reveal">Resultados reales</p>
+    <h2 class="section-h reveal" style="max-width:540px;margin:0 auto 56px">Lo que dicen quienes <em>ya lo usan.</em></h2>
+    <div class="glass-card reveal" style="max-width:700px;margin:0 auto 64px;border-radius:20px;padding:52px 44px;position:relative;background:#0e1228;border:1px solid rgba(255,255,255,0.12)">
+      <div style="font-family:'Instrument Serif',serif;font-size:80px;line-height:1;position:absolute;top:22px;left:34px;color:#1a56ff;opacity:.22">"</div>
+      <p style="font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(16px,2.2vw,21px);color:rgba(255,255,255,.88);line-height:1.7;margin-bottom:32px;position:relative">Antes manejaba 80 créditos en Excel y me tomaba medio día revisar quién debía y quién había pagado. Con MABEN lo veo todo en segundos desde el celular. La mora bajó porque la detecto el mismo día que vence.</p>
+      <div style="display:flex;align-items:center;justify-content:center;gap:14px">
+        <div style="width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:18px">🏍</div>
+        <div style="text-align:left"><div style="font-size:14px;font-weight:700">Cliente MABEN</div><div style="font-size:12px;color:rgba(255,255,255,.4)">Financiera de motos — Venezuela</div></div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+      <div class="glass-card reveal" style="border-radius:14px;padding:28px;text-align:center">
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(32px,4vw,48px);color:#fff;letter-spacing:-.03em;line-height:1">50%</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.4);margin-top:8px">Menos tiempo en gestión</div>
+      </div>
+      <div class="glass-card reveal d1" style="border-radius:14px;padding:28px;text-align:center">
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(32px,4vw,48px);color:#fff;letter-spacing:-.03em;line-height:1">24h</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.4);margin-top:8px">Para tener tu sistema activo</div>
+      </div>
+      <div class="glass-card reveal d2" style="border-radius:14px;padding:28px;text-align:center">
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(32px,4vw,48px);color:#fff;letter-spacing:-.03em;line-height:1">0</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.4);margin-top:8px">Créditos en mora sin detectar</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<div class="divider-line"></div>
+<section class="content-section" id="pricing" style="background:rgba(255,255,255,0.015)">
+  <div class="section-inner">
+    <p class="eyebrow reveal" style="text-align:center">Planes</p>
+    <h2 class="section-h reveal" style="text-align:center;max-width:560px;margin:0 auto 32px">Precio fijo. Creces sin que <em>tu factura crezca.</em></h2>
+
+    <div class="glass-card reveal" style="border-radius:12px;padding:16px 22px;display:flex;align-items:center;gap:14px;margin-bottom:36px;border:1px solid rgba(0,192,127,0.18);background:rgba(0,192,127,0.07)">
+      <div style="font-size:22px">💡</div>
+      <div style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.6;flex:1"><strong style="color:#fff">Con 100 créditos activos, la mora no detectada te cuesta ~$480/mes.</strong> MABEN la detecta el día 1. Solo con eso ya pagas el sistema 4 veces.</div>
+    </div>
+
+    <div class="reveal" style="display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:40px">
+      <span id="lbl-m" style="font-size:14px;font-weight:600;color:#fff;transition:color .2s">Mensual</span>
+      <div id="toggle" class="toggle-track" onclick="toggleBilling()" style="background:rgba(255,255,255,0.12)">
+        <div class="toggle-knob" id="toggle-knob"></div>
+      </div>
+      <span id="lbl-a" style="font-size:14px;font-weight:600;color:rgba(255,255,255,.4);transition:color .2s;display:flex;align-items:center;gap:8px">Anual <span style="background:rgba(0,192,127,.15);color:#00c07f;font-size:11px;font-weight:700;padding:2px 10px;border-radius:99px">Ahorra 20%</span></span>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:8px">Starter</div>
+        <div style="display:flex;align-items:baseline;gap:3px;margin-bottom:4px">
+          <span style="font-size:20px;font-weight:700;color:rgba(255,255,255,.5)">$</span>
+          <span id="p1" style="font-size:48px;font-weight:800;letter-spacing:-.04em;line-height:1">99</span>
+          <span style="font-size:14px;color:rgba(255,255,255,.35)">/mes</span>
+        </div>
+        <div id="p1n" style="font-size:11px;color:#00c07f;font-weight:600;margin-bottom:8px;min-height:16px"></div>
+        <div style="font-size:12px;color:rgba(255,255,255,.28);margin-bottom:14px">≈ $3.3/día — menos que un café</div>
+        <p style="font-size:13px;color:rgba(255,255,255,.42);line-height:1.55;margin-bottom:18px">Para la financiera que quiere dejar el Excel esta semana.</p>
+        <div style="height:1px;background:rgba(255,255,255,.07);margin-bottom:18px"></div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:24px;flex:1">
+          <li style="display:flex;align-items:center;gap:9px;font-size:13px;color:rgba(255,255,255,.65)"><div style="width:17px;height:17px;border-radius:4px;background:rgba(26,86,255,.18);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✓</div>1 sede</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13px;color:rgba(255,255,255,.65)"><div style="width:17px;height:17px;border-radius:4px;background:rgba(26,86,255,.18);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✓</div>Hasta 200 créditos activos</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13px;color:rgba(255,255,255,.65)"><div style="width:17px;height:17px;border-radius:4px;background:rgba(26,86,255,.18);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✓</div>Score Indexa /850</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13px;color:rgba(255,255,255,.65)"><div style="width:17px;height:17px;border-radius:4px;background:rgba(26,86,255,.18);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✓</div>Mora automática desde día 1</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13px;color:rgba(255,255,255,.65)"><div style="width:17px;height:17px;border-radius:4px;background:rgba(26,86,255,.18);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✓</div>Onboarding incluido (24h)</li>
+        </ul>
+        <button class="btn-price btn-dark">Empezar ahora →</button>
+        <p style="font-size:11px;color:rgba(255,255,255,.2);text-align:center;margin-top:10px">30 días de prueba · Sin tarjeta</p>
+      </div>
+
+      <div class="price-card featured reveal d1">
+        <div class="popular-tag">⭐ Elegido por el 60% de clientes</div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:8px">Profesional</div>
+        <div style="display:flex;align-items:baseline;gap:3px;margin-bottom:4px">
+          <span style="font-size:20px;font-weight:700;color:rgba(255,255,255,.5)">$</span>
+          <span id="p2" style="font-size:48px;font-weight:800;letter-spacing:-.04em;line-height:1">279</span>
+          <span style="font-size:14px;color:rgba(255,255,255,.35)">/mes</span>
+        </div>
+        <div id="p2n" style="font-size:11px;color:#00c07f;font-weight:600;margin-bottom:8px;min-height:16px"></div>
+        <div style="font-size:12px;color:rgba(255,255,255,.28);margin-bottom:14px">≈ $9.3/día — menos que un asistente</div>
+        <p style="font-size:13px;color:rgba(255,255,255,.42);line-height:1.55;margin-bottom:18px">El sistema completo para una financiera seria que quiere escalar.</p>
+        <div style="height:1px;background:rgba(255,255,255,.07);margin-bottom:18px"></div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:24px;flex:1">
+          <li style="display:flex;align-items:center;gap:9px;font-size:13px;color:rgba(255,255,255,.82)"><div style="width:17px;height:17px;border-radius:4px;background:rgba(26,86,255,.3);color:#6ea8fe;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✓</div>5 sedes incluidas</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13px;color:rgba(255,255,255,.82)"><div style="width:17px;height:17px;border-radius:4px;background:rgba(26,86,255,.3);color:#6ea8fe;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✓</div>Créditos ilimitados</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13px;color:rgba(255,255,255,.82)"><div style="width:17px;height:17px;border-radius:4px;background:rgba(26,86,255,.3);color:#6ea8fe;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✓</div>Reportes avanzados de cartera</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13px;color:rgba(255,255,255,.82)"><div style="width:17px;height:17px;border-radius:4px;background:rgba(26,86,255,.3);color:#6ea8fe;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✓</div>Comisiones por vendedor</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13px;color:rgba(255,255,255,.82)"><div style="width:17px;height:17px;border-radius:4px;background:rgba(26,86,255,.3);color:#6ea8fe;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✓</div>Soporte WhatsApp mismo día</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13px;color:rgba(255,255,255,.82)"><div style="width:17px;height:17px;border-radius:4px;background:rgba(26,86,255,.3);color:#6ea8fe;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✓</div>Backup automático diario</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13px;color:rgba(255,255,255,.82)"><div style="width:17px;height:17px;border-radius:4px;background:rgba(26,86,255,.3);color:#6ea8fe;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✓</div>Multi-usuario sin límite</li>
+        </ul>
+        <button class="btn-price btn-blue">Solicitar demo gratuita →</button>
+        <div style="margin-top:12px;padding:10px 12px;background:rgba(255,255,255,.05);border-radius:8px;font-size:12px;color:rgba(255,255,255,.42);text-align:center">ROI desde el mes 1. <strong style="color:rgba(255,255,255,.7)">Reemplaza un asistente admin.</strong></div>
+      </div>
+
+      <div class="price-card reveal d2">
+        <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:8px">Enterprise</div>
+        <div style="display:flex;align-items:baseline;gap:3px;margin-bottom:4px">
+          <span style="font-size:20px;font-weight:700;color:rgba(255,255,255,.5)">$</span>
+          <span id="p3" style="font-size:48px;font-weight:800;letter-spacing:-.04em;line-height:1">599</span>
+          <span style="font-size:14px;color:rgba(255,255,255,.35)">/mes</span>
+        </div>
+        <div id="p3n" style="font-size:11px;color:#00c07f;font-weight:600;margin-bottom:8px;min-height:16px"></div>
+        <div style="font-size:12px;color:rgba(255,255,255,.28);margin-bottom:14px">Para grupos con operación multi-país</div>
+        <p style="font-size:13px;color:rgba(255,255,255,.42);line-height:1.55;margin-bottom:18px">Cuando tienes más de 5 sedes y necesitas escala real.</p>
+        <div style="height:1px;background:rgba(255,255,255,.07);margin-bottom:18px"></div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:24px;flex:1">
+          <li style="display:flex;align-items:center;gap:9px;font-size:13px;color:rgba(255,255,255,.65)"><div style="width:17px;height:17px;border-radius:4px;background:rgba(26,86,255,.18);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✓</div>Sedes ilimitadas</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13px;color:rgba(255,255,255,.65)"><div style="width:17px;height:17px;border-radius:4px;background:rgba(26,86,255,.18);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✓</div>API de integración completa</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13px;color:rgba(255,255,255,.65)"><div style="width:17px;height:17px;border-radius:4px;background:rgba(26,86,255,.18);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✓</div>SLA 99.9% garantizado</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13px;color:rgba(255,255,255,.65)"><div style="width:17px;height:17px;border-radius:4px;background:rgba(26,86,255,.18);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✓</div>Onboarding dedicado</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13px;color:rgba(255,255,255,.65)"><div style="width:17px;height:17px;border-radius:4px;background:rgba(26,86,255,.18);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✓</div>Módulos fiscales por país</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13px;color:rgba(255,255,255,.65)"><div style="width:17px;height:17px;border-radius:4px;background:rgba(26,86,255,.18);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✓</div>Gerente de cuenta propio</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13px;color:rgba(255,255,255,.65)"><div style="width:17px;height:17px;border-radius:4px;background:rgba(26,86,255,.18);color:#1a56ff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✓</div>Soporte 24/7</li>
+        </ul>
+        <button class="btn-price btn-dark">Hablar con ventas →</button>
+        <p style="font-size:11px;color:rgba(255,255,255,.2);text-align:center;margin-top:10px">Demo personalizada · 48h implementación</p>
+      </div>
+    </div>
+    <p class="reveal" style="text-align:center;font-size:13px;color:rgba(255,255,255,.3);margin-top:24px">Todos los planes incluyen <strong style="color:rgba(255,255,255,.6)">onboarding en 24h</strong> y <strong style="color:rgba(255,255,255,.6)">30 días de prueba</strong>. Sin permanencia.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<div class="divider-line"></div>
+<section class="content-section" id="faq" style="max-width:700px;margin:0 auto">
+  <p class="eyebrow reveal" style="text-align:center">FAQ</p>
+  <h2 class="section-h reveal" style="text-align:center;font-size:clamp(28px,3.5vw,44px);margin-bottom:40px">Todo lo que necesitas <em>saber antes de empezar.</em></h2>
+  <div class="faq-item reveal" onclick="toggleFaq(this)"><div class="faq-q">¿Cuánto tiempo tarda el onboarding?<div class="faq-icon">+</div></div><div class="faq-a">En 24 horas tienes tu sistema activo y configurado. Te guiamos por WhatsApp o videollamada directamente con los fundadores.</div></div>
+  <div class="faq-item reveal" onclick="toggleFaq(this)"><div class="faq-q">¿Mis datos están seguros?<div class="faq-icon">+</div></div><div class="faq-a">Sí. Cada financiera tiene su propia base de datos en Firebase (Google Cloud). Tus datos están completamente aislados. Backup automático diario incluido.</div></div>
+  <div class="faq-item reveal" onclick="toggleFaq(this)"><div class="faq-q">¿Funciona para cualquier artículo que financio?<div class="faq-icon">+</div></div><div class="faq-a">Sí. MABEN funciona para motos, electrodomésticos, maquinaria, paneles solares, vehículos o cualquier artículo que vendas a crédito. Completamente adaptable.</div></div>
+  <div class="faq-item reveal" onclick="toggleFaq(this)"><div class="faq-q">¿Puedo acceder desde el celular?<div class="faq-icon">+</div></div><div class="faq-a">Sí. MABEN funciona desde cualquier dispositivo con navegador. No necesitas instalar nada.</div></div>
+  <div class="faq-item reveal" onclick="toggleFaq(this)"><div class="faq-q">¿Qué pasa si quiero cancelar?<div class="faq-icon">+</div></div><div class="faq-a">Cancelas cuando quieras, sin penalidades ni contratos. Tus datos son exportables en cualquier momento.</div></div>
+  <div class="faq-item reveal" onclick="toggleFaq(this)"><div class="faq-q">¿Tienen soporte en español?<div class="faq-icon">+</div></div><div class="faq-a">100% en español. Los fundadores responden directamente — no hay bots ni call centers.</div></div>
+</section>
+
+<!-- CTA FINAL -->
+<div class="divider-line"></div>
+<section id="cta-section">
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(26,86,255,0.1),transparent 65%);pointer-events:none"></div>
+  <h2 class="reveal" style="font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(38px,6vw,76px);letter-spacing:-.03em;line-height:1.05;margin-bottom:12px;position:relative">Créditos bajo control.</h2>
+  <div class="reveal" style="font-family:'Instrument Serif',serif;font-size:clamp(22px,3.5vw,44px);color:rgba(255,255,255,.28);margin-bottom:22px;position:relative">Negocio en crecimiento.</div>
+  <p class="reveal" style="font-size:16px;color:rgba(255,255,255,.42);line-height:1.7;max-width:460px;margin:0 auto 40px;position:relative">Onboarding en 24 horas. Sin contratos. Sin permanencia. Con soporte real de los fundadores.</p>
+  <div class="reveal" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:28px;position:relative">
+    <a href="#pricing" class="btn-main" style="font-size:15px;padding:16px 40px">Ver planes y precios</a>
+    <a href="#" class="btn-ghost" style="font-size:15px;padding:16px 32px">Hablar por WhatsApp →</a>
+  </div>
+  <div class="reveal" style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap;position:relative">
+    <span style="font-size:12px;color:rgba(255,255,255,.28);display:flex;align-items:center;gap:6px"><span style="color:#00c07f;font-weight:700">✓</span>30 días de prueba</span>
+    <span style="font-size:12px;color:rgba(255,255,255,.28);display:flex;align-items:center;gap:6px"><span style="color:#00c07f;font-weight:700">✓</span>Onboarding en 24h</span>
+    <span style="font-size:12px;color:rgba(255,255,255,.28);display:flex;align-items:center;gap:6px"><span style="color:#00c07f;font-weight:700">✓</span>Cancela cuando quieras</span>
+    <span style="font-size:12px;color:rgba(255,255,255,.28);display:flex;align-items:center;gap:6px"><span style="color:#00c07f;font-weight:700">✓</span>Soporte de los fundadores</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="width:28px;height:28px;border-radius:6px;background:#1a56ff;display:flex;align-items:center;justify-content:center">
+        <svg width="16" height="16" viewBox="0 0 36 36" fill="none"><rect x="3" y="9" width="7" height="19" rx="2" fill="white"/><rect x="14" y="4" width="7" height="28" rx="2" fill="rgba(255,255,255,0.5)"/><rect x="25" y="13" width="7" height="15" rx="2" fill="rgba(255,255,255,0.3)"/></svg>
+      </div>
+      <span style="font-size:15px;font-weight:800;letter-spacing:.07em">MABEN</span>
+    </div>
+    <span style="font-size:12px;color:rgba(255,255,255,.22)">© 2026 Maben Inc. — Wyoming, USA · maben.io</span>
+    <div style="display:flex;gap:20px">
+      <a href="#" style="font-size:12px;color:rgba(255,255,255,.28);text-decoration:none">Términos</a>
+      <a href="#" style="font-size:12px;color:rgba(255,255,255,.28);text-decoration:none">Privacidad</a>
+      <a href="#" style="font-size:12px;color:rgba(255,255,255,.28);text-decoration:none">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════════════════
+//  MABEN CANVAS — Corazón anatómico + Cerebro + PCB
+//  Fondo fijo que se ve mientras el usuario scrollea
+// ═══════════════════════════════════════════════════════
+const canvas = document.getElementById('hero-canvas') || document.createElement('canvas');
+const ctx    = canvas.getContext('2d');
+let W, H, animT = 0, pageScrollY = 0;
+
+function resize() {
+  const dpr = window.devicePixelRatio || 1;
+  W = canvas.offsetWidth;
+  H = canvas.offsetHeight;
+  canvas.width  = W * dpr;
+  canvas.height = H * dpr;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+resize();
+window.addEventListener('resize', resize);
+
+window.addEventListener('scroll', () => {
+  pageScrollY = window.scrollY;
+  const sp = Math.min(1, pageScrollY / (window.innerHeight * 0.8));
+  const lbl = document.getElementById('fusion-label');
+  if (lbl) lbl.style.opacity = sp > 0.85 ? ((sp-0.85)/0.15).toFixed(2) : '0';
+});
+
+// ── Colores de la imagen de referencia ──
+const C = {
+  bg:      '#060a14',
+  heart1:  '#c0304a',   // rojo profundo corazón
+  heart2:  '#1a3a6b',   // azul metálico
+  arteria: '#8b1a2a',   // arterias oscuras
+  brain1:  '#3a3a7a',   // cerebro azul-gris
+  brain2:  '#6b6bb0',   // lóbulos iluminados
+  cyan:    '#00d4ff',   // conexiones cyan
+  magenta: '#e040fb',   // conexiones magenta
+  purple:  '#9c40ff',   // púrpura fusión
+  dot:     '#ff80ab',   // puntos finales magenta
+  dotB:    '#40e0ff',   // puntos finales cyan
+};
+
+// ═══════════════════════════
+//  CORAZÓN ANATÓMICO REAL
+// ═══════════════════════════
+function drawHeart(cx, cy, sc, beat) {
+  const s  = sc * (1 + beat * 0.025);
+  const s2 = s * 0.7;
+  ctx.save();
+
+  // Sombra de glow exterior
+  ctx.shadowColor = C.magenta;
+  ctx.shadowBlur  = 40 + beat * 20;
+
+  // Cuerpo principal del corazón — forma anatómica izquierda
+  ctx.beginPath();
+  // Ventrículo izquierdo (masa principal, punta abajo)
+  ctx.moveTo(cx, cy + s * 0.85);          // punta inferior
+  ctx.bezierCurveTo(
+    cx - s*0.7, cy + s*0.4,               // lado izq inferior
+    cx - s*0.85, cy - s*0.1,              // lado izq medio
+    cx - s*0.6,  cy - s*0.45             // hombro izq
+  );
+  ctx.bezierCurveTo(
+    cx - s*0.35, cy - s*0.75,             // lóbulo izq superior
+    cx - s*0.05, cy - s*0.7,             // tope izq
+    cx,           cy - s*0.5             // centro tope
+  );
+  ctx.bezierCurveTo(
+    cx + s*0.05, cy - s*0.7,             // tope der
+    cx + s*0.3,  cy - s*0.78,            // lóbulo der superior
+    cx + s*0.5,  cy - s*0.52            // hombro der
+  );
+  ctx.bezierCurveTo(
+    cx + s*0.72, cy - s*0.2,             // lado der medio
+    cx + s*0.65, cy + s*0.35,            // lado der inferior
+    cx,           cy + s*0.85           // punta inferior
+  );
+  ctx.closePath();
+
+  // Gradiente rojo-azul como en la imagen
+  const hGrd = ctx.createRadialGradient(cx - s*0.2, cy - s*0.1, s*0.1, cx, cy, s*1.1);
+  hGrd.addColorStop(0,   C.heart1);
+  hGrd.addColorStop(0.4, '#8b1550');
+  hGrd.addColorStop(0.7, '#0d2a5a');
+  hGrd.addColorStop(1,   '#0a1828');
+  ctx.fillStyle = hGrd;
+  ctx.fill();
+
+  // Borde metálico brillante
+  ctx.strokeStyle = `rgba(100,160,255,0.6)`;
+  ctx.lineWidth   = 1.5;
+  ctx.shadowBlur  = 8;
+  ctx.shadowColor = C.cyan;
+  ctx.stroke();
+
+  ctx.shadowBlur = 0;
+
+  // ── Arterias / venas principales ──
+  ctx.lineWidth = 4 + beat * 1.5;
+  ctx.lineCap   = 'round';
+
+  // Aorta (tubo principal arriba)
+  const arteries = [
+    // Aorta ascendente
+    { pts: [[cx - s*0.05, cy - s*0.5],[cx - s*0.15, cy - s*0.75],[cx - s*0.3, cy - s*0.95],[cx - s*0.6, cy - s*1.05],[cx - s*0.75, cy - s*0.85]], c: '#4a6090', w: 14 },
+    // Arteria pulmonar
+    { pts: [[cx + s*0.15, cy - s*0.45],[cx + s*0.25, cy - s*0.7],[cx + s*0.1,  cy - s*0.95]], c: '#3a5080', w: 10 },
+    // Vena cava superior
+    { pts: [[cx - s*0.35, cy - s*0.5],[cx - s*0.4, cy - s*0.75],[cx - s*0.38, cy - s*1.0]], c: '#2a3a60', w: 8 },
+    // Ramas de la aorta
+    { pts: [[cx - s*0.6, cy - s*1.05],[cx - s*0.75, cy - s*1.15],[cx - s*0.55, cy - s*1.25]], c: '#3a5080', w: 6 },
+    { pts: [[cx - s*0.6, cy - s*1.05],[cx - s*0.5, cy - s*1.2],[cx - s*0.3, cy - s*1.28]], c: '#3a5080', w: 5 },
+    { pts: [[cx - s*0.6, cy - s*1.05],[cx - s*0.7, cy - s*1.22]], c: '#3a5080', w: 5 },
+  ];
+
+  arteries.forEach(a => {
+    ctx.beginPath();
+    ctx.moveTo(a.pts[0][0], a.pts[0][1]);
+    a.pts.slice(1).forEach(p => ctx.lineTo(p[0], p[1]));
+    ctx.strokeStyle = a.c;
+    ctx.lineWidth   = a.w * (1 + beat * 0.08);
+    ctx.shadowColor = `rgba(80,140,255,0.4)`;
+    ctx.shadowBlur  = 6;
+    ctx.stroke();
+  });
+
+  // Venas superficiales (líneas finas rojas)
+  ctx.shadowBlur  = 3;
+  ctx.shadowColor = C.heart1;
+  const veins = [
+    [[cx - s*0.3, cy + s*0.1],[cx - s*0.55, cy + s*0.5],[cx - s*0.4, cy + s*0.75]],
+    [[cx - s*0.1, cy + s*0.2],[cx - s*0.2,  cy + s*0.6],[cx - s*0.1, cy + s*0.8]],
+    [[cx + s*0.1, cy + s*0.1],[cx + s*0.25, cy + s*0.45],[cx + s*0.15, cy + s*0.7]],
+    [[cx + s*0.3, cy - s*0.1],[cx + s*0.42, cy + s*0.2],[cx + s*0.35, cy + s*0.5]],
+    [[cx - s*0.4, cy - s*0.1],[cx - s*0.6,  cy + s*0.15],[cx - s*0.65, cy + s*0.4]],
+    [[cx - s*0.2, cy - s*0.3],[cx - s*0.35, cy - s*0.05]],
+    [[cx + s*0.2, cy - s*0.25],[cx + s*0.4, cy - s*0.0]],
+  ];
+  ctx.lineWidth = 1.2;
+  veins.forEach(v => {
+    ctx.beginPath();
+    ctx.moveTo(v[0][0], v[0][1]);
+    v.slice(1).forEach(p => ctx.lineTo(p[0], p[1]));
+    ctx.strokeStyle = `rgba(180,30,50,0.65)`;
+    ctx.stroke();
+  });
+
+  // ── Piezas metálicas / mecánicas (como en la imagen) ──
+  ctx.shadowColor = C.cyan;
+  ctx.shadowBlur  = 8;
+  ctx.strokeStyle = `rgba(80,160,220,0.55)`;
+  ctx.lineWidth   = 2;
+  // Costillas metálicas
+  const metalLines = [
+    { x1: cx - s*0.6, y1: cy - s*0.0, x2: cx + s*0.55, y2: cy - s*0.0 },
+    { x1: cx - s*0.68, y1: cy + s*0.2, x2: cx + s*0.6, y2: cy + s*0.2 },
+    { x1: cx - s*0.62, y1: cy + s*0.4, x2: cx + s*0.5, y2: cy + s*0.4 },
+  ];
+  metalLines.forEach(l => {
+    ctx.beginPath();
+    ctx.moveTo(l.x1, l.y1);
+    ctx.lineTo(l.x2, l.y2);
+    ctx.stroke();
+  });
+
+  // Tornillos / remaches
+  ctx.shadowBlur = 6;
+  [[cx - s*0.6, cy - s*0.3],[cx + s*0.55, cy - s*0.2],
+   [cx - s*0.65, cy + s*0.35],[cx + s*0.45, cy + s*0.35],
+   [cx - s*0.15, cy - s*0.15],[cx + s*0.1, cy + s*0.05]
+  ].forEach(([rx, ry]) => {
+    ctx.beginPath();
+    ctx.arc(rx, ry, 4, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(80,160,220,0.7)`;
+    ctx.shadowColor = C.cyan;
+    ctx.fill();
+  });
+
+  ctx.restore();
+}
+
+// ═══════════════════════════
+//  CEREBRO ANATÓMICO REAL
+// ═══════════════════════════
+function drawBrain(cx, cy, sc) {
+  ctx.save();
+  ctx.shadowColor = C.purple;
+  ctx.shadowBlur  = 35;
+
+  // Silueta principal del cerebro (vista lateral)
+  ctx.beginPath();
+  ctx.moveTo(cx - sc*0.5, cy + sc*0.52);   // base izq
+  ctx.bezierCurveTo(
+    cx - sc*0.82, cy + sc*0.4,
+    cx - sc*0.95, cy + sc*0.1,
+    cx - sc*0.92, cy - sc*0.18
+  );
+  ctx.bezierCurveTo(
+    cx - sc*0.88, cy - sc*0.45,
+    cx - sc*0.72, cy - sc*0.7,
+    cx - sc*0.45, cy - sc*0.82
+  );
+  ctx.bezierCurveTo(
+    cx - sc*0.2,  cy - sc*0.92,
+    cx + sc*0.1,  cy - sc*0.92,
+    cx + sc*0.38, cy - sc*0.82
+  );
+  ctx.bezierCurveTo(
+    cx + sc*0.65, cy - sc*0.7,
+    cx + sc*0.82, cy - sc*0.45,
+    cx + sc*0.82, cy - sc*0.1
+  );
+  ctx.bezierCurveTo(
+    cx + sc*0.82, cy + sc*0.2,
+    cx + sc*0.68, cy + sc*0.45,
+    cx + sc*0.45, cy + sc*0.55
+  );
+  ctx.bezierCurveTo(
+    cx + sc*0.2,  cy + sc*0.62,
+    cx - sc*0.1,  cy + sc*0.62,
+    cx - sc*0.5,  cy + sc*0.52
+  );
+  ctx.closePath();
+
+  // Gradiente azul-púrpura como en la imagen
+  const bGrd = ctx.createRadialGradient(cx + sc*0.1, cy - sc*0.2, sc*0.1, cx, cy, sc*1.2);
+  bGrd.addColorStop(0,   '#6a6ac0');
+  bGrd.addColorStop(0.4, '#3a3a80');
+  bGrd.addColorStop(0.8, '#1a1a50');
+  bGrd.addColorStop(1,   '#0a0a28');
+  ctx.fillStyle = bGrd;
+  ctx.fill();
+
+  // Borde iluminado
+  ctx.strokeStyle = `rgba(120,100,220,0.7)`;
+  ctx.lineWidth = 1.5;
+  ctx.shadowColor = C.purple;
+  ctx.shadowBlur  = 10;
+  ctx.stroke();
+
+  // ── Surcos del cerebro (gyri) — la parte más importante visualmente ──
+  ctx.shadowBlur = 0;
+  const gyri = [
+    // Surco central (horizontal)
+    { pts: [[cx - sc*0.1, cy - sc*0.7],[cx + sc*0.12, cy - sc*0.45],[cx + sc*0.05, cy - sc*0.12],[cx + sc*0.15, cy + sc*0.18]], w: 2.5, c: 'rgba(90,80,180,0.8)' },
+    // Surco frontal superior
+    { pts: [[cx - sc*0.45, cy - sc*0.65],[cx - sc*0.18, cy - sc*0.5],[cx - sc*0.05, cy - sc*0.28],[cx - sc*0.12, cy + sc*0.05]], w: 2, c: 'rgba(90,80,180,0.75)' },
+    // Surco parietal
+    { pts: [[cx + sc*0.35, cy - sc*0.55],[cx + sc*0.45, cy - sc*0.28],[cx + sc*0.42, cy + sc*0.05],[cx + sc*0.3, cy + sc*0.3]], w: 2, c: 'rgba(90,80,180,0.7)' },
+    // Surco temporal
+    { pts: [[cx - sc*0.78, cy - sc*0.1],[cx - sc*0.55, cy + sc*0.08],[cx - sc*0.3, cy + sc*0.22],[cx - sc*0.05, cy + sc*0.3],[cx + sc*0.2, cy + sc*0.32]], w: 2, c: 'rgba(80,70,170,0.7)' },
+    // Surcos secundarios
+    { pts: [[cx - sc*0.65, cy - sc*0.4],[cx - sc*0.38, cy - sc*0.28],[cx - sc*0.22, cy - sc*0.0]], w: 1.5, c: 'rgba(80,70,160,0.6)' },
+    { pts: [[cx + sc*0.18, cy - sc*0.72],[cx + sc*0.38, cy - sc*0.55],[cx + sc*0.55, cy - sc*0.3]], w: 1.5, c: 'rgba(80,70,160,0.6)' },
+    { pts: [[cx - sc*0.3,  cy + sc*0.15],[cx - sc*0.1, cy + sc*0.42],[cx + sc*0.12, cy + sc*0.5]], w: 1.5, c: 'rgba(80,70,160,0.55)' },
+    { pts: [[cx + sc*0.5,  cy + sc*0.05],[cx + sc*0.6, cy + sc*0.28],[cx + sc*0.4,  cy + sc*0.48]], w: 1.5, c: 'rgba(80,70,160,0.55)' },
+    // Micros
+    { pts: [[cx - sc*0.55, cy + sc*0.2],[cx - sc*0.4, cy + sc*0.38]], w:1, c:'rgba(70,60,150,0.5)'},
+    { pts: [[cx + sc*0.22, cy + sc*0.18],[cx + sc*0.38, cy + sc*0.38]], w:1, c:'rgba(70,60,150,0.5)'},
+    { pts: [[cx - sc*0.22, cy - sc*0.55],[cx - sc*0.35, cy - sc*0.3]], w:1, c:'rgba(70,60,150,0.5)'},
+  ];
+
+  gyri.forEach(g => {
+    ctx.beginPath();
+    ctx.moveTo(g.pts[0][0], g.pts[0][1]);
+    for (let i = 1; i < g.pts.length - 1; i++) {
+      const mx = (g.pts[i][0] + g.pts[i+1][0]) / 2;
+      const my = (g.pts[i][1] + g.pts[i+1][1]) / 2;
+      ctx.quadraticCurveTo(g.pts[i][0], g.pts[i][1], mx, my);
+    }
+    ctx.lineTo(g.pts[g.pts.length-1][0], g.pts[g.pts.length-1][1]);
+    ctx.strokeStyle = g.c;
+    ctx.lineWidth   = g.w;
+    ctx.stroke();
+  });
+
+  // ── Parte metálica / tech (lado derecho del cerebro) ──
+  ctx.shadowColor = C.cyan;
+  ctx.shadowBlur  = 12;
+  // Placas metálicas
+  const plates = [
+    { x: cx + sc*0.38, y: cy - sc*0.6,  w: sc*0.28, h: sc*0.22 },
+    { x: cx + sc*0.55, y: cy - sc*0.28, w: sc*0.2,  h: sc*0.28 },
+    { x: cx + sc*0.42, y: cy + sc*0.1,  w: sc*0.22, h: sc*0.2  },
+  ];
+  plates.forEach(p => {
+    ctx.strokeStyle = `rgba(80,180,220,0.5)`;
+    ctx.lineWidth   = 1.2;
+    ctx.strokeRect(p.x, p.y, p.w, p.h);
+    // Líneas internas de la placa
+    ctx.beginPath();
+    ctx.moveTo(p.x + p.w*0.5, p.y);
+    ctx.lineTo(p.x + p.w*0.5, p.y + p.h);
+    ctx.moveTo(p.x, p.y + p.h*0.5);
+    ctx.lineTo(p.x + p.w, p.y + p.h*0.5);
+    ctx.strokeStyle = `rgba(80,180,220,0.3)`;
+    ctx.stroke();
+  });
+
+  // LEDs del cerebro (puntitos cyan brillantes)
+  [[cx + sc*0.6, cy - sc*0.35],[cx + sc*0.72, cy - sc*0.05],[cx + sc*0.62, cy + sc*0.25],[cx + sc*0.48, cy - sc*0.5]].forEach(([lx, ly]) => {
+    ctx.beginPath();
+    ctx.arc(lx, ly, 4, 0, Math.PI * 2);
+    ctx.fillStyle = C.cyan;
+    ctx.shadowColor = C.cyan;
+    ctx.shadowBlur  = 14;
+    ctx.fill();
+  });
+
+  // Cables que salen del cerebro (abajo)
+  ctx.shadowBlur  = 5;
+  ctx.shadowColor = C.purple;
+  ctx.lineWidth   = 4;
+  ctx.lineCap     = 'round';
+  [[cx - sc*0.05, cy + sc*0.58],[cx + sc*0.15, cy + sc*0.58],[cx + sc*0.32, cy + sc*0.52]].forEach(([sx, sy], i) => {
+    ctx.beginPath();
+    ctx.moveTo(sx, sy);
+    ctx.lineTo(sx + (i-1)*sc*0.05, sy + sc*0.18);
+    ctx.strokeStyle = `rgba(80,60,160,0.8)`;
+    ctx.stroke();
+  });
+
+  ctx.restore();
+}
+
+// ═══════════════════════════════
+//  CIRCUITOS PCB
+// ═══════════════════════════════
+function buildCircuits(hCx, hCy, bCx, sc) {
+  const startX = hCx + sc * 0.68;
+  const endX   = bCx - sc * 0.85;
+  return Array.from({length:7},(_,i)=>({
+    startX, endX,
+    yOffset: (i - 3) * sc * 0.155,
+    turnX:   startX + sc * 0.1 + i * sc * 0.055,
+    isCyan:  i % 2 !== 0,
+  }));
+}
+
+class CircuitPulse {
+  constructor(startX, endX, y) {
+    this.sx   = startX; this.ex = endX; this.y = y;
+    this.p    = Math.random() > 0.5 ? 0 : 1;
+    this.dir  = this.p === 0 ? 1 : -1;
+    this.spd  = 0.004 + Math.random() * 0.004;
+    this.done = false;
+    this.col  = Math.random() > 0.5 ? '#00d4ff' : '#e040fb';
+  }
+  update() {
+    this.p += this.spd * this.dir;
+    if (this.p > 1.05 || this.p < -0.05) this.done = true;
+  }
+  draw() {
+    const px = this.sx + (this.ex - this.sx) * Math.max(0, Math.min(1, this.p));
+    ctx.save();
+    ctx.shadowColor = this.col;
+    ctx.shadowBlur  = 16;
+    ctx.beginPath(); ctx.arc(px, this.y, 4, 0, Math.PI*2);
+    ctx.fillStyle = this.col; ctx.fill();
+    for (let i=1;i<=5;i++){
+      const tp = Math.max(0,Math.min(1,this.p - this.dir*i*0.022));
+      const tx = this.sx + (this.ex - this.sx) * tp;
+      ctx.globalAlpha = (5-i)/5*0.45;
+      ctx.beginPath(); ctx.arc(tx, this.y, 3-i*0.35, 0, Math.PI*2);
+      ctx.fill();
+    }
+    ctx.restore();
+  }
+}
+
+let cpulses = [], cpTimer = 0;
+
+// ═══════════════════════
+//  RENDER PRINCIPAL
+// ═══════════════════════
+function render() {
+  ctx.clearRect(0,0,W,H);
+  ctx.fillStyle = '#060a16';
+  ctx.fillRect(0,0,W,H);
+
+  // Vignette
+  const vgn = ctx.createRadialGradient(W/2,H/2,H*0.25,W/2,H/2,H*0.85);
+  vgn.addColorStop(0,'rgba(0,0,0,0)');
+  vgn.addColorStop(1,'rgba(0,0,10,0.8)');
+  ctx.fillStyle=vgn; ctx.fillRect(0,0,W,H);
+
+  animT++;
+  const sp   = Math.min(1, pageScrollY / (window.innerHeight * 0.8));
+  const beat = (Math.sin(animT * 0.06) + 1) / 2;
+
+  const hCx0 = W * 0.26, bCx0 = W * 0.74, cy = H * 0.52;
+  const sc   = Math.min(W*0.145, H*0.26, 155);
+  const hCx  = hCx0 + (W/2 - hCx0) * sp * 0.88;
+  const bCx  = bCx0 + (W/2 - bCx0) * sp * 0.88;
+
+  // Glows ambiente
+  [[hCx,cy,`rgba(180,30,80,${0.13+beat*0.04})`],
+   [bCx,cy,'rgba(80,60,200,0.12)'],
+   [W/2,cy,`rgba(130,60,220,${sp*0.2})`]
+  ].forEach(([ox,oy,oc])=>{
+    const g=ctx.createRadialGradient(ox,oy,0,ox,oy,sc*2.2);
+    g.addColorStop(0,oc); g.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+  });
+
+  // Circuitos PCB
+  const circs = buildCircuits(hCx, cy, bCx, sc);
+  const lA    = Math.max(0, 1 - sp * 2.2);
+
+  ctx.save();
+  circs.forEach((c, i) => {
+    const y   = cy + c.yOffset;
+    const col = c.isCyan ? '#00d4ff' : '#e040fb';
+    const dot = c.isCyan ? '#40e0ff' : '#ff80ab';
+    ctx.strokeStyle = col;
+    ctx.globalAlpha = 0.55 + sp * 0.3;
+    ctx.lineWidth   = 1.5;
+    ctx.lineCap     = 'square';
+    ctx.shadowColor = col;
+    ctx.shadowBlur  = 9;
+    ctx.beginPath();
+    ctx.moveTo(c.startX, cy);
+    ctx.lineTo(c.turnX,  cy);
+    ctx.lineTo(c.turnX,  y);
+    ctx.lineTo(c.endX,   y);
+    ctx.stroke();
+    // Dots finales
+    ctx.globalAlpha = 1;
+    ctx.shadowBlur  = 18;
+    ctx.beginPath(); ctx.arc(c.endX, y, 4.5, 0, Math.PI*2);
+    ctx.fillStyle = dot; ctx.fill();
+    ctx.shadowBlur = 8;
+    ctx.beginPath(); ctx.arc(c.startX, cy, 3, 0, Math.PI*2);
+    ctx.fillStyle = col; ctx.fill();
+  });
+  ctx.restore();
+
+  // Pulsos
+  cpTimer++;
+  if (cpTimer % 20 === 0 && circs.length) {
+    const c = circs[Math.floor(Math.random()*circs.length)];
+    cpulses.push(new CircuitPulse(c.startX, c.endX, cy + c.yOffset));
+  }
+  cpulses = cpulses.filter(p=>!p.done);
+  cpulses.forEach(p=>{p.update();p.draw();});
+
+  // Corazón y cerebro
+  drawHeart(hCx, cy, sc, beat);
+  drawBrain(bCx, cy, sc);
+
+  // Labels
+  if (lA > 0.05) {
+    ctx.save();
+    ctx.globalAlpha = lA;
+    ctx.textAlign   = 'center';
+    ctx.font = `700 12px 'Plus Jakarta Sans',sans-serif`;
+    ctx.fillStyle = '#e040fb'; ctx.shadowColor='#e040fb'; ctx.shadowBlur=12;
+    ctx.fillText('GESTIÓN FINANCIERA', hCx, cy + sc + 32);
+    ctx.fillStyle = '#00d4ff'; ctx.shadowColor='#00d4ff';
+    ctx.fillText('INTELIGENCIA TECNOLÓGICA', bCx, cy - sc - 20);
+    ctx.restore();
+  }
+
+  // Fusión
+  if (sp > 0.65) {
+    const fp = (sp - 0.65) / 0.35;
+    for (let r=0;r<4;r++){
+      const rp = (fp + r*0.25)%1;
+      const al = (1-rp)*fp*0.65;
+      ctx.beginPath(); ctx.arc(W/2,cy,rp*sc*2.8,0,Math.PI*2);
+      ctx.strokeStyle=`rgba(160,80,255,${al.toFixed(2)})`;
+      ctx.lineWidth=2; ctx.shadowColor='#9c40ff'; ctx.shadowBlur=22;
+      ctx.stroke();
+    }
+    if (fp > 0.55) {
+      const ta=(fp-0.55)/0.45;
+      ctx.save();
+      ctx.globalAlpha=ta; ctx.textAlign='center';
+      ctx.font=`800 ${Math.floor(28+ta*18)}px 'Plus Jakarta Sans',sans-serif`;
+      ctx.fillStyle='#fff'; ctx.shadowColor='#9c40ff'; ctx.shadowBlur=32;
+      ctx.fillText('MABEN',W/2,cy-14);
+      ctx.font=`500 11px 'Plus Jakarta Sans',sans-serif`;
+      ctx.fillStyle=`rgba(200,160,255,${ta})`; ctx.shadowBlur=0;
+      ctx.fillText('CRÉDITOS BAJO CONTROL · NEGOCIO EN CRECIMIENTO',W/2,cy+10);
+      ctx.restore();
+    }
+  }
+
+  requestAnimationFrame(render);
+}
+
+render();
+
+// ════════════════════════════════════
+//  UI INTERACTIONS
+// ════════════════════════════════════
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function toggleFaq(el) { el.classList.toggle('open'); }
+
+let isAnnual = false;
+const prices = { monthly: [99, 279, 599], annual: [79, 219, 479] };
+const notes = ['Facturado $949/año · ahorras $240', 'Facturado $2,677/año · ahorras $672', 'Facturado $5,750/año · ahorras $1,440'];
+
+function toggleBilling() {
+  isAnnual = !isAnnual;
+  document.getElementById('toggle').style.background = isAnnual ? '#1a56ff' : 'rgba(255,255,255,0.12)';
+  document.getElementById('toggle-knob').style.transform = isAnnual ? 'translateX(22px)' : 'none';
+  document.getElementById('lbl-m').style.color = isAnnual ? 'rgba(255,255,255,.4)' : '#fff';
+  document.getElementById('lbl-a').style.color = isAnnual ? '#fff' : 'rgba(255,255,255,.4)';
+  const p = isAnnual ? prices.annual : prices.monthly;
+  [1, 2, 3].forEach(i => {
+    document.getElementById('p' + i).textContent = p[i - 1];
+    document.getElementById('p' + i + 'n').textContent = isAnnual ? notes[i - 1] : '';
+  });
+}
+
+
+// ══════════════════════════════════════
+//  VIDEO SCROLL SCRUBBING
+//  El video avanza según el scroll
+// ══════════════════════════════════════
+const bgVideo = document.getElementById('bg-video');
+let videoDuration = 0;
+let ticking = false;
+
+bgVideo.addEventListener('loadedmetadata', () => {
+  videoDuration = bgVideo.duration;
+  bgVideo.currentTime = 0;
+  bgVideo.pause();
+});
+
+// Asegurarse que el video está listo
+bgVideo.load();
+
+function scrubVideo() {
+  if (!videoDuration) return;
+  const totalScroll = document.body.scrollHeight - window.innerHeight;
+  const progress = Math.min(1, Math.max(0, window.scrollY / totalScroll));
+  // Primera mitad del scroll = primera mitad del video (acercamiento)
+  // Segunda mitad = fusión
+  bgVideo.currentTime = progress * videoDuration;
+  ticking = false;
+}
+
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(scrubVideo);
+    ticking = true;
+  }
+}, { passive: true });
+
+
+// ══════════════════════════════════
+//  SCROLL SCRUBBING — VIDEO CONTROL
+// ══════════════════════════════════
+(function() {
+  const video = document.getElementById('scroll-video');
+  if (!video) return;
+
+  // Esperar a que el video esté listo
+  video.addEventListener('loadedmetadata', initScrub);
+  video.addEventListener('canplay', initScrub);
+  // Por si ya está listo
+  if (video.readyState >= 2) initScrub();
+
+  let inited = false;
+  function initScrub() {
+    if (inited) return;
+    inited = true;
+
+    const dur = video.duration;
+    video.pause();
+    video.currentTime = 0;
+
+    // La zona de scroll que controla el video = 2x la altura de la ventana
+    // (el hero + un poco más para que la fusión ocurra gradualmente)
+    const scrollZone = window.innerHeight * 2.5;
+
+    let ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const sy = window.scrollY;
+        const progress = Math.min(1, Math.max(0, sy / scrollZone));
+        video.currentTime = progress * dur;
+
+        // Fade del label de fusión
+        const lbl = document.getElementById('fusion-label');
+        if (lbl) {
+          const fp = Math.max(0, (progress - 0.82) / 0.18);
+          lbl.style.opacity = Math.min(1, fp).toFixed(2);
+          lbl.style.position = 'fixed';
+          lbl.style.top = '50%';
+          lbl.style.left = '50%';
+          lbl.style.transform = 'translate(-50%,-50%)';
+          lbl.style.zIndex = '50';
+        }
+
+        ticking = false;
+      });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll(); // estado inicial
+  }
+})();
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+reveals.forEach(r => obs.observe(r));
+</script>
+</body>
+</html>
+
