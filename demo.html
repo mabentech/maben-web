@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Solicitar demo — Maben</title>
+<meta name="description" content="Solicita una demo de Maben. Cuéntanos sobre tu proyecto y te mostramos cómo convertir tu idea en un producto digital real.">
+<meta name="theme-color" content="#2563eb">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPgo8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMxZDZmZmYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMyNTYzZWIiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTYiIGZpbGw9InVybCgjZykiLz4KPHJlY3QgeD0iMTQiIHk9IjMwIiB3aWR0aD0iOSIgaGVpZ2h0PSIyMiIgcng9IjIiIGZpbGw9IiNmZmYiLz4KPHJlY3QgeD0iMjcuNSIgeT0iMTgiIHdpZHRoPSI5IiBoZWlnaHQ9IjM0IiByeD0iMiIgZmlsbD0iI2ZmZiIvPgo8cmVjdCB4PSI0MSIgeT0iMjQiIHdpZHRoPSI5IiBoZWlnaHQ9IjI4IiByeD0iMiIgZmlsbD0iI2ZmZiIvPgo8L3N2Zz4=">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -72,8 +76,18 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:26px 0
 .success p{color:var(--muted);font-size:16px;max-width:340px;margin:0 auto 24px;}
 .success a{display:inline-block;text-decoration:none;color:var(--blue);font-weight:700;font-size:15px;}
 
-@media(max-width:900px){.demo{grid-template-columns:1fr;gap:36px;}.demo .left{order:2;}.form-card{order:1;}}
-@media(max-width:560px){.form-card{padding:28px 22px;}.row2{grid-template-columns:1fr;}}
+@media(max-width:900px){.demo{grid-template-columns:1fr;gap:36px;}.demo .left{order:1;}.form-card{order:2;}}
+@media(max-width:560px){
+  nav{flex-wrap:wrap;gap:14px;padding:20px 0;}
+  .nav-right{gap:12px;}
+  .back{font-size:13px;}
+  .lang-switch button{padding:8px 12px;font-size:12px;}
+  .brand-text .sub{font-size:9px;letter-spacing:.16em;}
+  .form-card{padding:26px 20px;}
+  .row2{grid-template-columns:1fr;}
+  .demo{padding:20px 0 60px;}
+  .demo h1{font-size:clamp(32px,9vw,44px);}
+}
 </style>
 </head>
 <body>
