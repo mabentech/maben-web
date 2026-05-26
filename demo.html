@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solicitar demo — Maben</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#2563eb;--blue-bright:#1d6fff;--blue-soft:#eaf1ff;
+  --ink:#0b0f1a;--ink-soft:#3b4256;--muted:#6b7280;
+  --bg:#f4f5f7;--card:#ffffff;--line:#e6e8ec;--dark:#0f1115;
+  --font:'Plus Jakarta Sans',-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5;min-height:100vh;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+
+/* NAV */
+nav{display:flex;align-items:center;justify-content:space-between;padding:26px 0;}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;}
+.logo-mark{width:46px;height:46px;border-radius:13px;background:linear-gradient(150deg,var(--blue-bright),var(--blue));display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px -6px rgba(37,99,235,.55);}
+.brand-text .name{font-weight:800;font-size:20px;letter-spacing:.06em;}
+.brand-text .sub{font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--muted);}
+.nav-right{display:flex;align-items:center;gap:18px;}
+.lang-switch{display:flex;background:#fff;border:1.5px solid var(--line);border-radius:10px;overflow:hidden;}
+.lang-switch button{border:none;background:transparent;font-family:var(--font);font-weight:700;font-size:13px;padding:9px 14px;cursor:pointer;color:var(--muted);transition:.2s;}
+.lang-switch button.active{background:var(--blue);color:#fff;}
+.back{text-decoration:none;color:var(--ink-soft);font-weight:600;font-size:14px;display:flex;align-items:center;gap:6px;}
+.back:hover{color:var(--blue);}
+
+/* LAYOUT */
+.demo{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:center;padding:40px 0 80px;}
+.eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:22px;}
+.eyebrow .bar{width:46px;height:3px;background:var(--blue);border-radius:2px;}
+.eyebrow span{font-size:12px;font-weight:700;letter-spacing:.18em;color:var(--blue);}
+.demo h1{font-size:clamp(38px,4.5vw,56px);line-height:1.02;font-weight:800;letter-spacing:-.03em;margin-bottom:22px;}
+.demo h1 .accent{color:var(--blue);}
+.demo .lead{font-size:18px;color:var(--ink-soft);margin-bottom:34px;font-weight:500;max-width:420px;}
+.benefits{list-style:none;display:flex;flex-direction:column;gap:16px;}
+.benefits li{display:flex;align-items:center;gap:14px;font-weight:600;color:var(--ink-soft);}
+.benefits .check{width:30px;height:30px;border-radius:9px;background:var(--blue-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+
+/* FORM CARD */
+.form-card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:40px;box-shadow:0 40px 80px -40px rgba(15,23,42,.3);}
+.form-card h2{font-size:24px;font-weight:800;margin-bottom:6px;letter-spacing:-.02em;}
+.form-card .sub{font-size:15px;color:var(--muted);margin-bottom:28px;}
+.field{margin-bottom:18px;}
+.field label{display:block;font-size:13px;font-weight:700;margin-bottom:7px;color:var(--ink);}
+.field label .req{color:var(--blue);}
+.field input,.field select,.field textarea{
+  width:100%;font-family:var(--font);font-size:15px;padding:13px 15px;
+  border:1.5px solid var(--line);border-radius:11px;background:#fbfbfc;color:var(--ink);
+  transition:border-color .2s,box-shadow .2s;
+}
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(37,99,235,.12);background:#fff;
+}
+.field textarea{resize:vertical;min-height:90px;}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.submit{width:100%;background:var(--blue);color:#fff;border:none;font-family:var(--font);font-weight:700;font-size:16px;padding:16px;border-radius:12px;cursor:pointer;margin-top:8px;box-shadow:0 12px 26px -10px rgba(37,99,235,.7);transition:transform .2s,background .2s;display:flex;align-items:center;justify-content:center;gap:8px;}
+.submit:hover{transform:translateY(-2px);background:var(--blue-bright);}
+.privacy{font-size:12px;color:var(--muted);text-align:center;margin-top:16px;line-height:1.5;}
+
+/* SUCCESS */
+.success{display:none;text-align:center;padding:30px 10px;}
+.success.show{display:block;}
+.success .ic{width:72px;height:72px;border-radius:50%;background:var(--blue-soft);display:flex;align-items:center;justify-content:center;margin:0 auto 22px;}
+.success h2{font-size:26px;font-weight:800;margin-bottom:10px;}
+.success p{color:var(--muted);font-size:16px;max-width:340px;margin:0 auto 24px;}
+.success a{display:inline-block;text-decoration:none;color:var(--blue);font-weight:700;font-size:15px;}
+
+@media(max-width:900px){.demo{grid-template-columns:1fr;gap:36px;}.demo .left{order:2;}.form-card{order:1;}}
+@media(max-width:560px){.form-card{padding:28px 22px;}.row2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- NAV -->
+  <nav>
+    <a href="maben.html" class="brand">
+      <div class="logo-mark">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="11" width="4" height="9" rx="1" fill="#fff"/>
+          <rect x="10" y="5" width="4" height="15" rx="1" fill="#fff"/>
+          <rect x="17" y="8" width="4" height="12" rx="1" fill="#fff"/>
+        </svg>
+      </div>
+      <div class="brand-text"><div class="name">MABEN</div><div class="sub">SOFTWARE DEVELOPMENT</div></div>
+    </a>
+    <div class="nav-right">
+      <a href="maben.html" class="back" data-i18n="back">← Volver al inicio</a>
+      <div class="lang-switch">
+        <button id="btn-es" class="active" onclick="setLang('es')">ES</button>
+        <button id="btn-en" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- DEMO -->
+  <section class="demo">
+    <div class="left">
+      <div class="eyebrow"><div class="bar"></div><span data-i18n="eyebrow">SOLICITAR UNA DEMO</span></div>
+      <h1 data-i18n-html="title">Veamos qué podemos <span class="accent">construir</span> juntos<span class="accent">.</span></h1>
+      <p class="lead" data-i18n="lead">Cuéntanos sobre tu proyecto. Te mostraremos cómo Maben puede convertir tu idea en un producto digital real.</p>
+      <ul class="benefits">
+        <li><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span><span data-i18n="b1">Respuesta en menos de 24 horas</span></li>
+        <li><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span><span data-i18n="b2">Demo personalizada para tu caso</span></li>
+        <li><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span><span data-i18n="b3">Sin compromiso ni costo</span></li>
+      </ul>
+    </div>
+
+    <div class="form-card">
+      <div id="form-view">
+        <h2 data-i18n="form_title">Solicita tu demo</h2>
+        <p class="sub" data-i18n="form_sub">Completa el formulario y te contactaremos pronto.</p>
+        <form id="demo-form" onsubmit="return handleSubmit(event)">
+          <div class="row2">
+            <div class="field">
+              <label data-i18n="f_name">Nombre <span class="req">*</span></label>
+              <input type="text" name="nombre" required>
+            </div>
+            <div class="field">
+              <label data-i18n="f_company">Empresa</label>
+              <input type="text" name="empresa">
+            </div>
+          </div>
+          <div class="row2">
+            <div class="field">
+              <label data-i18n="f_email">Email <span class="req">*</span></label>
+              <input type="email" name="email" required>
+            </div>
+            <div class="field">
+              <label data-i18n="f_phone">Teléfono</label>
+              <input type="tel" name="telefono">
+            </div>
+          </div>
+          <div class="field">
+            <label data-i18n="f_type">Tipo de proyecto</label>
+            <select name="tipo">
+              <option data-i18n="opt1">App móvil</option>
+              <option data-i18n="opt2">Desarrollo web</option>
+              <option data-i18n="opt3">Diseño UI / UX</option>
+              <option data-i18n="opt4">Integración de IA</option>
+              <option data-i18n="opt5">Otro</option>
+            </select>
+          </div>
+          <div class="field">
+            <label data-i18n="f_msg">Cuéntanos sobre tu proyecto</label>
+            <textarea name="mensaje" data-i18n-ph="ph_msg" placeholder="Describe brevemente tu idea o necesidad..."></textarea>
+          </div>
+          <button type="submit" class="submit" data-i18n="submit">Enviar solicitud ↗</button>
+          <p class="privacy" data-i18n="privacy">Al enviar aceptas que Maben te contacte sobre tu solicitud. Tus datos están seguros con nosotros.</p>
+        </form>
+      </div>
+
+      <div id="success-view" class="success">
+        <div class="ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <h2 data-i18n="ok_title">¡Solicitud enviada!</h2>
+        <p data-i18n="ok_msg">Gracias por tu interés. Nuestro equipo te contactará en menos de 24 horas.</p>
+        <a href="maben.html" data-i18n="ok_back">← Volver al inicio</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+const i18n={
+  es:{
+    back:"← Volver al inicio",
+    eyebrow:"SOLICITAR UNA DEMO",
+    title:'Veamos qué podemos <span class="accent">construir</span> juntos<span class="accent">.</span>',
+    lead:"Cuéntanos sobre tu proyecto. Te mostraremos cómo Maben puede convertir tu idea en un producto digital real.",
+    b1:"Respuesta en menos de 24 horas", b2:"Demo personalizada para tu caso", b3:"Sin compromiso ni costo",
+    form_title:"Solicita tu demo", form_sub:"Completa el formulario y te contactaremos pronto.",
+    f_name:"Nombre", f_company:"Empresa", f_email:"Email", f_phone:"Teléfono", f_type:"Tipo de proyecto",
+    opt1:"App móvil", opt2:"Desarrollo web", opt3:"Diseño UI / UX", opt4:"Integración de IA", opt5:"Otro",
+    f_msg:"Cuéntanos sobre tu proyecto", ph_msg:"Describe brevemente tu idea o necesidad...",
+    submit:"Enviar solicitud ↗",
+    privacy:"Al enviar aceptas que Maben te contacte sobre tu solicitud. Tus datos están seguros con nosotros.",
+    ok_title:"¡Solicitud enviada!", ok_msg:"Gracias por tu interés. Nuestro equipo te contactará en menos de 24 horas.", ok_back:"← Volver al inicio"
+  },
+  en:{
+    back:"← Back to home",
+    eyebrow:"REQUEST A DEMO",
+    title:'Let\'s see what we can <span class="accent">build</span> together<span class="accent">.</span>',
+    lead:"Tell us about your project. We'll show you how Maben can turn your idea into a real digital product.",
+    b1:"Reply in under 24 hours", b2:"Demo tailored to your case", b3:"No commitment, no cost",
+    form_title:"Request your demo", form_sub:"Fill out the form and we'll get back to you soon.",
+    f_name:"Name", f_company:"Company", f_email:"Email", f_phone:"Phone", f_type:"Project type",
+    opt1:"Mobile app", opt2:"Web development", opt3:"UI / UX design", opt4:"AI integration", opt5:"Other",
+    f_msg:"Tell us about your project", ph_msg:"Briefly describe your idea or need...",
+    submit:"Send request ↗",
+    privacy:"By submitting you agree that Maben may contact you about your request. Your data is safe with us.",
+    ok_title:"Request sent!", ok_msg:"Thanks for your interest. Our team will contact you within 24 hours.", ok_back:"← Back to home"
+  }
+};
+function setLang(lang){
+  const d=i18n[lang];
+  document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(d[k]!==undefined)el.textContent=d[k];});
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{const k=el.getAttribute('data-i18n-html');if(d[k]!==undefined)el.innerHTML=d[k];});
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{const k=el.getAttribute('data-i18n-ph');if(d[k]!==undefined)el.placeholder=d[k];});
+  document.getElementById('btn-es').classList.toggle('active',lang==='es');
+  document.getElementById('btn-en').classList.toggle('active',lang==='en');
+}
+// Read ?lang= from URL so the language carries over from the landing page
+const urlLang=new URLSearchParams(location.search).get('lang');
+if(urlLang==='en') setLang('en');
+
+function handleSubmit(e){
+  e.preventDefault();
+  // --- PLACEHOLDER: aquí conectaremos el envío real a info@maben.io ---
+  // Por ahora solo muestra el mensaje de éxito.
+  document.getElementById('form-view').style.display='none';
+  document.getElementById('success-view').classList.add('show');
+  return false;
+}
+</script>
+</body>
+</html>
