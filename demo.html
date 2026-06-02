@@ -228,12 +228,57 @@ if(urlLang==='en') setLang('en');
 
 function handleSubmit(e){
   e.preventDefault();
-  // --- PLACEHOLDER: aquí conectaremos el envío real a info@maben.io ---
-  // Por ahora solo muestra el mensaje de éxito.
+  var f = document.getElementById('demo-form');
+  var d = {
+    nombre:   (f.nombre.value||'').trim(),
+    empresa:  (f.empresa.value||'').trim(),
+    email:    (f.email.value||'').trim(),
+    telefono: (f.telefono.value||'').trim(),
+    tipo:     f.tipo.value,
+    mensaje:  (f.mensaje.value||'').trim()
+  };
+
+  // 1) Abrir WhatsApp con los datos ya escritos (gesto del usuario → no lo bloquea el navegador)
+  var lineas = ['¡Hola Maben! Quiero solicitar una demo.', '', 'Nombre: ' + d.nombre];
+  if (d.empresa)  lineas.push('Empresa: ' + d.empresa);
+  lineas.push('Email: ' + d.email);
+  if (d.telefono) lineas.push('Teléfono: ' + d.telefono);
+  lineas.push('Tipo: ' + d.tipo);
+  if (d.mensaje)  lineas.push('Proyecto: ' + d.mensaje);
+  window.open('https://wa.me/584143691704?text=' + encodeURIComponent(lineas.join('\n')), '_blank');
+
+  // 2) Enviar copia por correo a info@maben.io (FormSubmit — sin backend)
+  fetch('https://formsubmit.co/ajax/info@maben.io', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      _subject: 'Nueva solicitud de demo — ' + (d.nombre || 'sin nombre'),
+      Nombre: d.nombre, Empresa: d.empresa, Email: d.email,
+      'Telefono': d.telefono, 'Tipo de proyecto': d.tipo, Mensaje: d.mensaje
+    })
+  }).catch(function(){ /* si el correo falla, el lead igual llegó por WhatsApp */ });
+
+  // 3) Registrar conversión en Analytics (si está activo)
+  if (typeof gtag === 'function') { gtag('event','generate_lead',{ method:'demo_form' }); }
+
+  // 4) Mostrar mensaje de éxito
   document.getElementById('form-view').style.display='none';
   document.getElementById('success-view').classList.add('show');
   return false;
 }
 </script>
+<!-- Botón flotante de WhatsApp -->
+<style>
+  .wa-float{position:fixed;right:22px;bottom:22px;width:64px;height:64px;border-radius:50%;
+    background:#25D366;display:flex;align-items:center;justify-content:center;z-index:99999;
+    box-shadow:0 8px 24px rgba(0,0,0,.28);transition:transform .2s;text-decoration:none;}
+  .wa-float:hover{transform:scale(1.08);}
+  .wa-float::after{content:"";position:absolute;inset:0;border-radius:50%;animation:waPulse 2.2s infinite;}
+  @keyframes waPulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+  @media(max-width:600px){.wa-float{width:58px;height:58px;right:16px;bottom:16px}}
+</style>
+<a class="wa-float" href="https://wa.me/584143691704?text=Hola%20Maben%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20su%20software." target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 32 32" width="34" height="34" fill="#fff"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.4 2 7.7L.5 31.5l8-2.1c2.2 1.2 4.8 1.9 7.5 1.9 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 28.3c-2.4 0-4.7-.6-6.7-1.8l-.5-.3-4.8 1.3 1.3-4.6-.3-.5c-1.3-2.1-2-4.5-2-7 0-7.2 5.9-13.1 13.1-13.1S29.1 8.8 29.1 16 23.2 28.8 16 28.8zm7.2-9.8c-.4-.2-2.3-1.1-2.7-1.3-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.2 1.5-.2.2-.4.3-.8.1-.4-.2-1.6-.6-3.1-1.9-1.1-1-1.9-2.3-2.1-2.7-.2-.4 0-.6.2-.8.2-.2.4-.4.5-.7.2-.2.2-.4.4-.7.1-.3 0-.5 0-.7-.1-.2-.9-2.1-1.2-2.9-.3-.8-.6-.7-.9-.7h-.8c-.2 0-.6.1-1 .5-.3.4-1.3 1.3-1.3 3.1s1.3 3.6 1.5 3.9c.2.3 2.6 4 6.3 5.6.9.4 1.6.6 2.1.8.9.3 1.7.2 2.3.1.7-.1 2.3-.9 2.6-1.8.3-.9.3-1.6.2-1.8-.1-.1-.3-.2-.7-.4z"/></svg>
+</a>
 </body>
 </html>
