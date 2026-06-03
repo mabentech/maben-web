@@ -238,16 +238,7 @@ function handleSubmit(e){
     mensaje:  (f.mensaje.value||'').trim()
   };
 
-  // 1) Abrir WhatsApp con los datos ya escritos (gesto del usuario → no lo bloquea el navegador)
-  var lineas = ['¡Hola Maben! Quiero solicitar una demo.', '', 'Nombre: ' + d.nombre];
-  if (d.empresa)  lineas.push('Empresa: ' + d.empresa);
-  lineas.push('Email: ' + d.email);
-  if (d.telefono) lineas.push('Teléfono: ' + d.telefono);
-  lineas.push('Tipo: ' + d.tipo);
-  if (d.mensaje)  lineas.push('Proyecto: ' + d.mensaje);
-  window.open('https://wa.me/584143691704?text=' + encodeURIComponent(lineas.join('\n')), '_blank');
-
-  // 2) Enviar copia por correo a info@maben.io (FormSubmit — sin backend)
+  // Enviar la solicitud por correo a info@maben.io (FormSubmit — sin backend)
   fetch('https://formsubmit.co/ajax/info@maben.io', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
