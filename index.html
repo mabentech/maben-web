@@ -83,10 +83,14 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-
 /* NAV */
 nav{display:flex;align-items:center;justify-content:space-between;padding:26px 0;}
 .brand{display:flex;align-items:center;gap:14px;}
-.logo-mark{width:46px;height:46px;border-radius:13px;background:linear-gradient(150deg,var(--blue-bright),var(--blue));display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px -6px rgba(37,99,235,.55);}
+.logo-mark{width:46px;height:46px;border-radius:13px;background:linear-gradient(150deg,#3b82f6,#2563eb 55%,#1d4ed8);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 11px rgba(15,30,60,.22),inset 0 1.5px 2px rgba(255,255,255,.28);}
 .brand-text{line-height:1.1;}
 .brand-text .name{font-weight:800;font-size:20px;letter-spacing:.06em;}
 .brand-text .sub{font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--muted);}
+.brand-text .subwrap{display:flex;flex-direction:column;gap:2px;margin-top:3px;}
+.brand-text .subln{display:flex;justify-content:space-between;font-size:8px;font-weight:600;color:var(--muted);line-height:1;}
+.brand-text .subln span{display:block;}
+footer .brand-text .subln{font-size:7px;}
 .nav-links{display:flex;gap:42px;}
 .nav-links a{text-decoration:none;color:var(--ink-soft);font-weight:600;font-size:15px;transition:color .2s;}
 .nav-links a:hover{color:var(--blue);}
@@ -302,14 +306,14 @@ footer .brand-text .name{font-size:17px;}
     <div class="brand">
       <div class="logo-mark">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-          <rect x="3" y="11" width="4" height="9" rx="1" fill="#fff"/>
-          <rect x="10" y="5" width="4" height="15" rx="1" fill="#fff"/>
-          <rect x="17" y="8" width="4" height="12" rx="1" fill="#fff"/>
+          <rect x="4" y="12" width="3.6" height="8" rx="1.2" fill="#fff"/>
+          <rect x="10.2" y="8" width="3.6" height="12" rx="1.2" fill="#fff"/>
+          <rect x="16.4" y="4" width="3.6" height="16" rx="1.2" fill="#fff"/>
         </svg>
       </div>
       <div class="brand-text">
         <div class="name">MABEN</div>
-        <div class="sub">SOFTWARE DEVELOPMENT</div>
+        <div class="subwrap"><div class="subln"><span>S</span><span>O</span><span>F</span><span>T</span><span>W</span><span>A</span><span>R</span><span>E</span></div><div class="subln"><span>D</span><span>E</span><span>V</span><span>E</span><span>L</span><span>O</span><span>P</span><span>M</span><span>E</span><span>N</span><span>T</span></div></div>
       </div>
     </div>
     <div class="nav-links">
@@ -336,7 +340,7 @@ footer .brand-text .name{font-size:17px;}
     <div class="mobile-panel">
       <div class="mm-head">
         <div class="brand">
-          <div class="logo-mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="4" height="9" rx="1" fill="#fff"/><rect x="10" y="5" width="4" height="15" rx="1" fill="#fff"/><rect x="17" y="8" width="4" height="12" rx="1" fill="#fff"/></svg></div>
+          <div class="logo-mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="12" width="3.6" height="8" rx="1.2" fill="#fff"/><rect x="10.2" y="8" width="3.6" height="12" rx="1.2" fill="#fff"/><rect x="16.4" y="4" width="3.6" height="16" rx="1.2" fill="#fff"/></svg></div>
           <div class="brand-text"><div class="name">MABEN</div></div>
         </div>
         <button class="mm-close" onclick="closeMenu()" aria-label="Cerrar">×</button>
@@ -546,12 +550,12 @@ footer .brand-text .name{font-size:17px;}
         <div class="brand">
           <div class="logo-mark">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <rect x="3" y="11" width="4" height="9" rx="1" fill="#fff"/>
-              <rect x="10" y="5" width="4" height="15" rx="1" fill="#fff"/>
-              <rect x="17" y="8" width="4" height="12" rx="1" fill="#fff"/>
+              <rect x="4" y="12" width="3.6" height="8" rx="1.2" fill="#fff"/>
+              <rect x="10.2" y="8" width="3.6" height="12" rx="1.2" fill="#fff"/>
+              <rect x="16.4" y="4" width="3.6" height="16" rx="1.2" fill="#fff"/>
             </svg>
           </div>
-          <div class="brand-text"><div class="name">MABEN</div><div class="sub">SOFTWARE DEVELOPMENT</div></div>
+          <div class="brand-text"><div class="name">MABEN</div><div class="subwrap"><div class="subln"><span>S</span><span>O</span><span>F</span><span>T</span><span>W</span><span>A</span><span>R</span><span>E</span></div><div class="subln"><span>D</span><span>E</span><span>V</span><span>E</span><span>L</span><span>O</span><span>P</span><span>M</span><span>E</span><span>N</span><span>T</span></div></div></div>
         </div>
         <p data-i18n="foot_about">Construimos software a la medida —apps, web, sistemas e IA— para empresas de Latinoamérica.</p>
         <div class="socials">

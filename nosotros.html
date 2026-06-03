@@ -29,7 +29,9 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdro
 .bars{display:flex;align-items:flex-end;gap:4px;height:100%;}
 .bars span:nth-child(1){height:38%}.bars span:nth-child(2){height:66%}.bars span:nth-child(3){height:100%}
 .bname{font-weight:800;font-size:22px;letter-spacing:-.5px;line-height:1;}
-.bname small{display:block;font-weight:600;font-size:8.5px;letter-spacing:3.5px;color:var(--ink2);margin-top:3px;}
+.bname .sw{display:flex;flex-direction:column;gap:2px;margin-top:3px;}
+.bname .sl{display:flex;justify-content:space-between;font-weight:600;font-size:8.5px;color:var(--ink2);line-height:1;}
+.bname .sl span{display:block;}
 .menu{display:flex;gap:30px;align-items:center;}
 .menu a{font-weight:600;font-size:15px;color:var(--ink2);}
 .menu a:hover{color:var(--ink);}
@@ -87,7 +89,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--ink2);font-si
 <header><div class="wrap"><div class="nav">
   <a class="brand" href="index.html">
     <div class="mark"><div class="bars"><span></span><span></span><span></span></div></div>
-    <div class="bname">MABEN<small>SOFTWARE DEVELOPMENT</small></div>
+    <div class="bname">MABEN<span class="sw"><span class="sl"><span>S</span><span>O</span><span>F</span><span>T</span><span>W</span><span>A</span><span>R</span><span>E</span></span><span class="sl"><span>D</span><span>E</span><span>V</span><span>E</span><span>L</span><span>O</span><span>P</span><span>M</span><span>E</span><span>N</span><span>T</span></span></span></div>
   </a>
   <nav class="menu">
     <a href="index.html#services">Servicios</a>
