@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 186 104">
+  <!-- Símbolo original de DARK SIDE: tres aros delineados con la línea
+       roja, sin disco de fondo. Versión clara (aros negros): es la que
+       rasteriza el PDF del recibo sobre papel blanco. -->
+  <g fill="none" stroke="#141414" stroke-width="4.2">
+    <circle cx="50" cy="52" r="45"/>
+    <circle cx="93" cy="52" r="45"/>
+    <circle cx="136" cy="52" r="45"/>
+  </g>
+  <line x1="0" y1="52" x2="186" y2="52" stroke="#e23a30" stroke-width="3"/>
+</svg>
