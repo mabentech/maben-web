@@ -42,28 +42,43 @@
     $$('.reveal').forEach(element => reveal.observe(element));
   } else $$('.reveal').forEach(element => element.classList.add('visible'));
 
-  /* Portada: los comentarios pasan de «sin respuesta» a respondidos */
-  const hero = $('#inicio');
-  const painCount = $('#pain-count');
-  const painCaption = $('#pain-caption');
-  let heroSolved = false;
-  let heroStamp = Date.now();
-  let countTimer;
-  function setHero(solved) {
-    heroSolved = solved;
-    hero.classList.toggle('solved', solved);
-    painCaption.textContent = solved ? 'Con Maben Chat Bot, en segundos' : 'Hoy, en 3 publicaciones';
-    clearInterval(countTimer);
-    if (!solved) painCount.textContent = '0';
-    else if (!motion) painCount.textContent = '18';
-    else {
-      let n = 0;
-      painCount.textContent = '0';
-      countTimer = setInterval(() => { n += 1; painCount.textContent = String(n); if (n >= 18) clearInterval(countTimer); }, 40);
+  const hero = $('.hero');
+  const heroVisual = $('.hero-visual');
+  hero.addEventListener('pointermove', event => {
+    if (!motion || event.pointerType === 'touch') return;
+    const box = hero.getBoundingClientRect();
+    heroVisual.style.setProperty('--px', `${((event.clientX - box.left) / box.width - .5) * 9}px`);
+    heroVisual.style.setProperty('--py', `${((event.clientY - box.top) / box.height - .5) * 7}px`);
+  });
+  hero.addEventListener('pointerleave', () => {
+    heroVisual.style.setProperty('--px', '0px');
+    heroVisual.style.setProperty('--py', '0px');
+  });
+
+  const phoneConversation = $('#hero-conversation');
+  let phoneManual = false;
+  let phoneStamp = Date.now();
+  function replayPhone() {
+    phoneConversation.classList.remove('replaying');
+    if (motion) {
+      void phoneConversation.offsetWidth;
+      phoneConversation.classList.add('replaying');
     }
-    heroStamp = Date.now();
+    phoneStamp = Date.now();
   }
-  setHero(!motion);
+  $$('[data-phone-channel]').forEach(button => button.addEventListener('click', () => {
+    phoneManual = true;
+    $$('[data-phone-channel]').forEach(item => {
+      item.classList.toggle('active', item === button);
+      item.setAttribute('aria-pressed', String(item === button));
+    });
+    $('#hero-question').textContent = button.dataset.phoneChannel === 'instagram'
+      ? 'Me gusta la camisa del post. ¿La tienen en M?'
+      : '¿Tienen esta camisa en talla M?';
+    replayPhone();
+  }));
+  $('#replay-phone').addEventListener('click', () => { phoneManual = true; replayPhone(); });
+  replayPhone();
 
   const demos = {
     atencion: {
@@ -196,17 +211,17 @@
     motionButton.setAttribute('aria-label', label);
     motionButton.title = label;
     motionButton.querySelector('use').setAttribute('href', motion ? '#i-pause' : '#i-play');
-    if (!motion) setHero(true);
-    demoStamp = heroStamp = Date.now();
+    if (!motion) phoneConversation.classList.remove('replaying');
+    demoStamp = phoneStamp = Date.now();
     tourLabel();
   }
   motionButton.addEventListener('click', () => applyMotion(!motion));
   reduced.addEventListener('change', event => applyMotion(!event.matches));
-  document.addEventListener('visibilitychange', () => { demoStamp = heroStamp = Date.now(); });
+  document.addEventListener('visibilitychange', () => { demoStamp = phoneStamp = Date.now(); });
   setInterval(() => {
     if (!motion || document.hidden) return;
     const now = Date.now();
-    if (heroVisible && now - heroStamp > (heroSolved ? 7000 : 2600)) setHero(!heroSolved);
+    if (heroVisible && !phoneManual && now - phoneStamp > 14500) replayPhone();
     if (demoVisible && tour && now - demoStamp > 8000) {
       const next = (tabs.findIndex(tab => tab.dataset.demo === demoKey) + 1) % tabs.length;
       renderDemo(tabs[next].dataset.demo);
