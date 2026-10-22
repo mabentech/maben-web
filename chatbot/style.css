@@ -102,3 +102,44 @@ html[data-motion=off]{scroll-behavior:auto}html[data-motion=off] *,html[data-mot
 h1,h2,h3{letter-spacing:-.02em}
 .hero h1{letter-spacing:-.034em}
 .section-heading h2,.implementation-copy h2,.contact-copy h2,.dialog-head h2{letter-spacing:-.024em}
+
+/* ---------- Portada: el «precio» sin respuesta ---------- */
+.pain-hero{position:relative;overflow:hidden;background:radial-gradient(45% 55% at 82% 45%,#ef444420,transparent 70%),radial-gradient(55% 65% at 80% 50%,#2563eb26,transparent 75%),#080f1e}
+.pain-hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(#abc7ff09 1px,transparent 1px),linear-gradient(90deg,#abc7ff09 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(70% 60% at 70% 45%,#000,transparent);mask-image:radial-gradient(70% 60% at 70% 45%,#000,transparent);pointer-events:none}
+.pain-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:56px;align-items:center;padding-block:158px 96px}
+.pain-copy{display:grid;gap:26px;min-width:0}
+.pain-copy .eyebrow{margin:0}
+.pain-copy h1{margin:0;font-size:clamp(46px,5.6vw,82px);line-height:1.02;font-weight:700;letter-spacing:-.035em;text-wrap:balance}
+.pain-copy h1 q{quotes:"«" "»";color:#ff7676;transition:color .5s}
+.pain-hero.solved .pain-copy h1 q{color:#91bdff}
+.pain-lede{max-width:46ch;font-size:18px;line-height:1.65;color:#c0cce0}
+.pain-tally{display:flex;align-items:baseline;gap:14px}
+.pain-tally b{font-size:64px;line-height:.9;font-weight:700;letter-spacing:-.04em;color:#ff7676;font-variant-numeric:tabular-nums;transition:color .5s}
+.pain-hero.solved .pain-tally b{color:#4ade80}
+.pain-tally>span{font-size:14px;line-height:1.45;color:var(--muted)}
+.pain-copy .hero-actions{margin-top:0}
+.pain-copy>.hero-enter:nth-child(2){animation-delay:.08s}
+.pain-copy>.hero-enter:nth-child(3){animation-delay:.16s}
+.pain-copy>.hero-enter:nth-child(4){animation-delay:.24s}
+.pain-copy>.hero-enter:nth-child(5){animation-delay:.32s}
+.pain-sheet{width:min(450px,100%);justify-self:center;padding:10px 20px 18px;border-radius:26px;background:#0d1422;border:1px solid #abc7ff24;box-shadow:0 40px 80px -40px #000;animation-delay:.2s}
+.pain-sheet-head{display:grid;justify-items:center;gap:10px;padding:4px 0 12px;border-bottom:1px solid #abc7ff1f;font-size:14px;font-weight:600}
+.pain-sheet-head i{width:38px;height:4px;border-radius:4px;background:#ffffff2e}
+.pain-cms{display:grid;gap:16px;margin:0;padding:16px 0 0;list-style:none}
+.pain-cm{display:grid;grid-template-columns:34px minmax(0,1fr);gap:11px;font-size:14px;line-height:1.4}
+.pain-cm p{margin:0}
+.pain-cm b{font-weight:600}
+.pain-cm time{margin-left:6px;font-size:12px;color:#7d8ca8}
+.pain-cm .av{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:700;color:#fff;background:hsl(var(--h) 42% 42%)}
+.pain-state{display:block;margin-top:4px;font-size:12px;font-weight:600;color:#ff7676}
+.pain-reply{display:none;grid-template-columns:28px minmax(0,1fr);gap:9px;margin-top:10px}
+.pain-reply .av-maben{width:28px;height:28px;background:#2563eb}
+.pain-reply .av-maben img{width:16px;height:auto}
+.pain-reply small{display:inline-flex;gap:5px;margin-left:6px;font-size:11px;color:#91bdff}
+.pain-hero.solved .pain-reply{display:grid;animation:pain-pop .4s both}
+.pain-hero.solved .pain-state{display:none}
+@keyframes pain-pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.pain-more{margin:12px 0 0;padding-top:12px;border-top:1px solid #abc7ff1f;font-size:12px;color:#7d8ca8}
+@media(max-width:920px){.pain-grid{grid-template-columns:minmax(0,1fr);padding-block:130px 72px}}
+@media(max-width:600px){.pain-grid{gap:40px;padding-block:112px 56px}.pain-copy h1{font-size:clamp(38px,10.5vw,50px)}.pain-lede{font-size:16px}.pain-tally b{font-size:52px}.pain-sheet{padding:10px 16px 16px}}
+html[data-motion="off"] .pain-hero *{animation:none!important;transition:none!important}
